@@ -1,8 +1,10 @@
 #include <iostream>
+#include "Utils/FileReaderARFF.h"
 
 using namespace std;
 
 int main() {
-    cout << "Hello, World!" << endl;
-    return 0;
+    FileReaderARFF reader = FileReaderARFF("");
+    reader.readClass();
+    reader.readData();
 }

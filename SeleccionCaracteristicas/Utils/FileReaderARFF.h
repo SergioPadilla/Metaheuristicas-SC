@@ -18,12 +18,13 @@ class FileReaderARFF {
 private:
     string file;
 
-    Data stringToData(string to_parse);
+    Characteristic stringToCharacteristic(string to_parse, int num_attributes);
+    vector<Characteristic> readData(int num_attributes);
+    pair<vector<string>, int> readHead();
 public:
     FileReaderARFF(string pathFile);
 
-    list<string> readClass();
-    list<Data> readData();
+    vector<Characteristic> readFile();
 };
 
 #endif //SELECCIONCARACTERISTICAS_FILEREADERARFF_H

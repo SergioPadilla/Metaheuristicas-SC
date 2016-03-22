@@ -4,7 +4,6 @@
 using namespace std;
 
 int main() {
-    FileReaderARFF reader = FileReaderARFF("");
-    reader.readClass();
-    reader.readData();
+    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
+    reader.readFile();
 }

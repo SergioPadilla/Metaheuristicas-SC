@@ -11,7 +11,7 @@
 
 using namespace std;
 
-struct Data{
+struct Characteristic {
     vector<double> attributes;
     string clase;
 };

@@ -16,4 +16,9 @@ struct Characteristic {
     string clase;
 };
 
+struct MaxMin{
+    double max;
+    double min;
+};
+
 #endif //SELECCIONCARACTERISTICAS_STRUCT_H

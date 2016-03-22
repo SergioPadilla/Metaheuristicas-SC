@@ -12,6 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="591c9fc5-6312-4441-bbfa-cd3a4cab7d27" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/FileReaderARFF.cpp" afterPath="$PROJECT_DIR$/Utils/FileReaderARFF.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/FileReaderARFF.h" afterPath="$PROJECT_DIR$/Utils/FileReaderARFF.h" />

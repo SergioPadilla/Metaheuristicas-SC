@@ -1,3 +1,3 @@
 # Metaheuristicas-SC
-Repositorio para la asignatura Metaherísticas.
+Repositorio para la asignatura Metaheurísticas.
 Problema elegido: Selección de Características.

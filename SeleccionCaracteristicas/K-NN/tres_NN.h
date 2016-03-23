@@ -8,15 +8,33 @@
 
 #include "../Utils/struct.h"
 
-class tres_NN {
-private:
-    /**
-     * Return the same characteristic with the attributes normalized
-     */
-    vector<Characteristic> normalized(vector<Characteristic> characteristics);
-    vector<MaxMin> maxmin(vector<Characteristic> characteristics);
-public:
-};
+/**
+ * Return the same characteristic with the attributes normalized
+ */
+vector<Characteristic> normalized(vector<Characteristic> characteristics);
+/**
+ * Return the interval of definition for each attribute
+ */
+vector<MaxMin> maxmin(vector<Characteristic> characteristics);
+/**
+ * Return the distance between two vector
+ */
+double distance(vector<double> a, vector<double> b);
+
+/**
+ * True if some component is 0
+ */
+bool isZero(vector<double> v);
+
+/**
+ * Return the three neighbour
+ */
+vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics);
+
+/**
+ * get the majority class of the neighbours
+ */
+string get_class(vector<Characteristic> characteristics);
 
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

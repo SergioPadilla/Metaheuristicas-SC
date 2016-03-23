@@ -12,9 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="591c9fc5-6312-4441-bbfa-cd3a4cab7d27" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/SeleccionCaracteristicas.iml" afterPath="$PROJECT_DIR$/.idea/SeleccionCaracteristicas.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/struct.h" afterPath="$PROJECT_DIR$/Utils/struct.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/K-NN/tres_NN.cpp" afterPath="$PROJECT_DIR$/K-NN/tres_NN.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/K-NN/tres_NN.h" afterPath="$PROJECT_DIR$/K-NN/tres_NN.h" />
     </list>
     <ignored path="SeleccionCaracteristicas.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +49,8 @@
       <file leaf-file-name="tres_NN.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/K-NN/tres_NN.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43636364">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="2.290909">
+              <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
               <folding>
                 <element signature="e#54#70#0" expanded="true" />
               </folding>
@@ -63,7 +62,7 @@
         <entry file="file://$PROJECT_DIR$/K-NN/tres_NN.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="66" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <caret line="36" column="57" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -499,15 +498,15 @@
     <entry file="file://$PROJECT_DIR$/K-NN/tres_NN.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="66" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <caret line="36" column="57" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/K-NN/tres_NN.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43636364">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state vertical-scroll-proportion="2.290909">
+          <caret line="126" column="1" selection-start-line="126" selection-start-column="1" selection-end-line="126" selection-end-column="1" />
           <folding>
             <element signature="e#54#70#0" expanded="true" />
           </folding>

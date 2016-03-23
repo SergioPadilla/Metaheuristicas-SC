@@ -3,9 +3,10 @@
 //
 
 #include <cmath>
+#include <iostream>
 #include "tres_NN.h"
 
-vector<Characteristic> tres_NN::normalized(vector<Characteristic> characteristics){
+vector<Characteristic> normalized(vector<Characteristic> characteristics){
     vector<Characteristic> normal = vector<Characteristic>(characteristics);
     vector<MaxMin> maxmin_attributes = maxmin(characteristics);
 
@@ -23,7 +24,7 @@ vector<Characteristic> tres_NN::normalized(vector<Characteristic> characteristic
     return normal;
 }
 
-vector<MaxMin> tres_NN::maxmin(vector<Characteristic> characteristics){
+vector<MaxMin> maxmin(vector<Characteristic> characteristics){
     vector <MaxMin> maxmin_attributes;
 
     // Initialize with the values of the first
@@ -44,3 +45,83 @@ vector<MaxMin> tres_NN::maxmin(vector<Characteristic> characteristics){
     return maxmin_attributes;
 }
 
+double distance(vector<double> a, vector<double> b){
+    double distance;
+    double sum = -1;
+
+    if(a.size() != b.size()){
+        cerr << "The vector don't have the same size, impossible to calculate the distance" << endl;
+    }
+    else {
+        for(int i = 0; i < a.size(); i++)
+            sum = sum + (a.at(i)-b.at(i))*(a.at(i)-b.at(i));
+
+        return sqrt(sum);
+    }
+
+    return sum;
+}
+
+bool isZero(vector<double> v){
+    bool zero = false;
+
+    for(int i = 0; i < v.size(); i++){
+        if(v.at(i) == 0)
+            zero = true;
+    }
+
+    return zero;
+}
+
+vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics){
+    vector<double> distancies_min;
+    vector<Characteristic> neighbours;
+    neighbours.reserve(3);
+    distancies_min.reserve(3);
+    bool zero;
+    int pos;
+
+    for(int i = 0; i < 3; i++){
+        neighbours.at(i) = characteristics.at(i);
+        distancies_min.at(i) = distance(candidate, characteristics.at(i).attributes);
+    }
+
+    //if some distance is zero
+    zero = isZero(distancies_min);
+    if(zero){
+        pos = 0;
+        if(distancies_min.at(1) == 0){
+            pos = 1;
+        }
+        else if(distancies_min.at(2) == 0){
+            pos = 2;
+        }
+
+        distancies_min.at(pos) = distance(candidate, characteristics.at(3).attributes);
+        neighbours.at(pos) = characteristics.at(3);
+        pos = 4; //to use the variable. I need it to the prox for
+    }
+    else
+        pos = 3;
+
+    for(int i = pos; i < characteristics.size(); i++){
+        double dist = distance(candidate, characteristics.at(i).attributes);
+        if(dist != 0)
+            for(int j = 0; j < 3; j++)
+                if(dist < distancies_min.at(j)){
+                    distancies_min.at(j) = dist;
+                    neighbours.at(j) = characteristics.at(i);
+                }
+    }
+
+    return neighbours;
+}
+
+string get_class(vector<Characteristic> characteristics){
+    string majority_class = characteristics.at(0).clase;
+
+    if(characteristics.at(1).clase == characteristics.at(2).clase)
+        majority_class = characteristics.at(1).clase;
+
+    return majority_class;
+}

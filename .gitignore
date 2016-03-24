@@ -69,3 +69,7 @@
 #data file
 *.txt
 *.arff
+
+#idea
+.idea
+*.idea/*

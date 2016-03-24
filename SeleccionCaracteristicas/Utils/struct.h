@@ -14,6 +14,11 @@ using namespace std;
 struct Characteristic {
     vector<double> attributes;
     string clase;
+
+    bool equal(Characteristic c){
+        bool is = (attributes == c.attributes && clase == c.clase) ?  true :  false;
+        return is;
+    }
 };
 
 struct MaxMin{

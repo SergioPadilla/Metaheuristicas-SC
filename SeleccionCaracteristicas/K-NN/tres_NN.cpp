@@ -117,11 +117,27 @@ vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Char
     return neighbours;
 }
 
-string get_class(vector<Characteristic> characteristics){
-    string majority_class = characteristics.at(0).clase;
+string get_class(vector<Characteristic> characteristics, vector<double> distances){
+    string majority_class;
+    double distance_actual;
 
-    if(characteristics.at(1).clase == characteristics.at(2).clase)
+    if(characteristics.at(0).clase == characteristics.at(1).clase)
         majority_class = characteristics.at(1).clase;
+    else if(characteristics.at(1).clase == characteristics.at(2).clase)
+        majority_class = characteristics.at(1).clase;
+    else if(characteristics.at(0).clase == characteristics.at(2).clase)
+        majority_class = characteristics.at(0).clase;
+    else{
+        majority_class = characteristics.at(0).clase;
+        distance_actual = distances.at(0);
+
+        for(int i = 1; i < 3; i++){
+            if(distance_actual > distances.at(i)){
+                distance_actual == distances.at(i);
+                majority_class = characteristics.at(i).clase;
+            }
+        }
+    }
 
     return majority_class;
 }

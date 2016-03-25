@@ -32,7 +32,7 @@ bool isZero(vector<double> v);
 vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics);
 
 /**
- * get the majority class of the neighbours
+ * get the majority class of the three neighbours
  */
 string get_class(vector<Characteristic> characteristics);
 

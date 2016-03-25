@@ -17,6 +17,6 @@ int find(vector<Characteristic> characteristics, Characteristic c);
  * Greedy algorithm
  * Sequential Forward Selection
  */
-vector<Characteristic> SFS(vector<Characteristic> characteristics);
+vector<int> SFS(vector<Characteristic> characteristics);
 
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

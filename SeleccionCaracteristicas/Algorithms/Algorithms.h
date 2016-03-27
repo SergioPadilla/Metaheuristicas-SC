@@ -7,13 +7,21 @@
 
 #include "../Utils/struct.h"
 #include "../random/random.h"
+#include "../K-NN/three_NN.h"
 #include <cmath>
 
 /**
  * Function objetive
  * % correct clasifications for the 3-NN
  */
-double tasa_clas(vector<Characteristic> characteristic);
+double tasa_clas(vector<Characteristic> characteristics);
+
+/**
+ * Function objetive
+ * % correct clasifications for the 3-NN
+ * Param: Accept a vector solution binary
+ */
+double tasa_clas(vector<int> solution, vector<Characteristic> characteristics);
 
 /**
  * Auxiliary function to find a characteristic in a vector of characteristics

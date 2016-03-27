@@ -4,12 +4,29 @@
 
 #include "Algorithms.h"
 
-double tasa_clas(vector<Characteristic> characteristic){
+double tasa_clas(vector<Characteristic> characteristics){
     int good = 0;
 
-    for(int i = 0; i < characteristic.size(); i++){
-
+    for(int i = 0; i < characteristics.size(); i++){
+        if(three_NN(characteristics.at(i), characteristics, i))
+            good++;
     }
+
+    return 100*good/characteristics.size();
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
+    vector<Characteristic> characteristics_selected;
+
+    for(int i = 0; i < solution.size(); i++){
+        if(solution.at(i) == 1){
+            characteristics_selected.push_back(characteristics.at(i));
+        }
+    }
+
+    return tasa_clas(characteristics_selected);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

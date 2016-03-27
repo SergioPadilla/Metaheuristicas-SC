@@ -39,6 +39,6 @@ string get_class(vector<Characteristic> characteristics);
 /**
  * 3-NN algorithm
  */
-bool tres_NN(vector<Characteristic> characteristics);
+bool three_NN(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate);
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

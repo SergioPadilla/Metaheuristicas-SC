@@ -4,7 +4,7 @@
 
 #include <cmath>
 #include <iostream>
-#include "tres_NN.h"
+#include "three_NN.h"
 
 vector<Characteristic> normalized(vector<Characteristic> characteristics){
     vector<Characteristic> normal = vector<Characteristic>(characteristics);
@@ -154,7 +154,7 @@ string get_class(vector<Characteristic> characteristics, vector<double> distance
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool tres_NN(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate){
+bool three_NN(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate){
     //normalized attributes
     vector<Characteristic> characteristics_normalized = normalized(characteristics);
     Characteristic candidate_normalized = characteristics_normalized.at(pos_candidate);

@@ -8,6 +8,8 @@ FileReaderARFF::FileReaderARFF(string pathFile){
     file = pathFile;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 pair <vector<string>, int> FileReaderARFF::readHead(){
     vector<string> class_readed;
     ifstream f;
@@ -50,6 +52,8 @@ pair <vector<string>, int> FileReaderARFF::readHead(){
     return pair;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 vector<Characteristic> FileReaderARFF::readData(int num_attributes){
     vector<Characteristic> data;
 
@@ -78,6 +82,8 @@ vector<Characteristic> FileReaderARFF::readData(int num_attributes){
     return data;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 Characteristic FileReaderARFF::stringToCharacteristic(string to_parse, int num_attributes){
     Characteristic characteristic;
     vector<double> attributes;
@@ -93,6 +99,8 @@ Characteristic FileReaderARFF::stringToCharacteristic(string to_parse, int num_a
 
     return characteristic;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 vector<Characteristic> FileReaderARFF::readFile(){
     pair <vector<string>,int> pair1 = readHead();

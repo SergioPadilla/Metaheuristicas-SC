@@ -7,12 +7,13 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include <fstream>
 #include <iostream>
 #include "struct.h"
+#include "../Utils/struct.h"
 
 using namespace std;
-
 
 class FileReaderARFF {
 private:

@@ -1,5 +1,5 @@
+#include "random.h"
 #include <math.h>
-#include "random_ppio.h"
 
 unsigned long Seed = 0L;
 

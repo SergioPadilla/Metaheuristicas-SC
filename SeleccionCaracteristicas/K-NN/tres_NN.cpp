@@ -24,6 +24,8 @@ vector<Characteristic> normalized(vector<Characteristic> characteristics){
     return normal;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 vector<MaxMin> maxmin(vector<Characteristic> characteristics){
     vector <MaxMin> maxmin_attributes;
 
@@ -45,6 +47,8 @@ vector<MaxMin> maxmin(vector<Characteristic> characteristics){
     return maxmin_attributes;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 double distance(vector<double> a, vector<double> b){
     double distance;
     double sum = -1;
@@ -62,6 +66,8 @@ double distance(vector<double> a, vector<double> b){
     return sum;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 bool isZero(vector<double> v){
     bool zero = false;
 
@@ -72,6 +78,8 @@ bool isZero(vector<double> v){
 
     return zero;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics){
     vector<double> distancies_min;
@@ -116,6 +124,8 @@ vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Char
 
     return neighbours;
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 string get_class(vector<Characteristic> characteristics, vector<double> distances){
     string majority_class;

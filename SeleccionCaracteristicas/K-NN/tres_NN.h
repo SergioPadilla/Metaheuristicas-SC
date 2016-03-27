@@ -36,5 +36,9 @@ vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Char
  */
 string get_class(vector<Characteristic> characteristics);
 
+/**
+ * 3-NN algorithm
+ */
+bool tres_NN(vector<Characteristic> characteristics);
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

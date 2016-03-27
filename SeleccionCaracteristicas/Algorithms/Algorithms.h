@@ -10,6 +10,12 @@
 #include <cmath>
 
 /**
+ * Function objetive
+ * % correct clasifications for the 3-NN
+ */
+double tasa_clas(vector<Characteristic> characteristic);
+
+/**
  * Auxiliary function to find a characteristic in a vector of characteristics
  * Return the position
  */

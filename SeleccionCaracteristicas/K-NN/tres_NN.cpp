@@ -80,7 +80,7 @@ bool isZero(vector<double> v){
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+//TODO: Cambiar vector<double> por characteristic y añadir parametro pos_candidate
 vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics){
     vector<double> distancies_min;
     vector<Characteristic> neighbours;
@@ -150,4 +150,17 @@ string get_class(vector<Characteristic> characteristics, vector<double> distance
     }
 
     return majority_class;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool tres_NN(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate){
+    //normalized attributes
+    vector<Characteristic> characteristics_normalized = normalized(characteristics);
+    Characteristic candidate_normalized = characteristics_normalized.at(pos_candidate);
+
+    // Calculate three neighbours nearest
+    vector<Characteristic> neighbours = calculate_Neigbours(candidate_normalized,characteristics_normalized, pos_candidate);
+
+    return get_class(neighbours) == candidate_normalized.clase;
 }

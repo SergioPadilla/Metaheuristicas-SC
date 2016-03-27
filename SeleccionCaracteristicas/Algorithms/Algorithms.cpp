@@ -4,6 +4,16 @@
 
 #include "Algorithms.h"
 
+double tasa_clas(vector<Characteristic> characteristic){
+    int good = 0;
+
+    for(int i = 0; i < characteristic.size(); i++){
+
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 int find(vector<Characteristic> characteristics, Characteristic c){
     bool find = false;
     int pos;

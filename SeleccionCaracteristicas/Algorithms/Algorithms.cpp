@@ -34,7 +34,7 @@ vector<int> SFS(vector<Characteristic> characteristics){
     Characteristic promising;
 
     for(int i = 0; i < 15000 && !F.empty() && !fin; i++){
-        //promising = ; //Seleccionamos la mas prometedora
+        //promising = ; //Seleccionamos la mas prometedora TODO: metemos 1 a 1 y cogemos la que más mejore la solucion
         pos = find(F,promising);
         F.erase(F.begin() + pos);
         S.insert(S.begin() + pos, 1);

@@ -121,7 +121,7 @@ vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Char
                     neighbours.at(j) = characteristics.at(i);
                 }
     }
-
+//TODO:revisar para coger los que sean iguales
     return neighbours;
 }
 

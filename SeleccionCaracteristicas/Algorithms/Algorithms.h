@@ -10,7 +10,7 @@
 #include <cmath>
 
 /**
- * Auxiliary function to find a characteristic in a vector
+ * Auxiliary function to find a characteristic in a vector of characteristics
  * Return the position
  */
 int find(vector<Characteristic> characteristics, Characteristic c);
@@ -24,17 +24,17 @@ vector<int> SFS(vector<Characteristic> characteristics);
 ////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
 
 /**
- * return a solution random
+ * Auxiliary function to generate a random solution
  */
 vector<int> sol_random(int size);
 
 /**
- * cooling scheme
+ * Auxiliary function to cooling temperature
  */
 double coolingTemperature(double t_cero, double t_f, double t);
 
 /**
- * Simulated Annealing algorithm
+ * Auxiliary function to generate new neighbour solution
  */
 vector<int> flip(vector<int> s, int i);
 
@@ -45,5 +45,11 @@ vector<int> ES(vector<Characteristic> characteristics);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for ES
 
+/**
+ * Tabú Search algorithm
+ */
+vector<int> BT(vector<Characteristic> characteristics);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BT
 
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

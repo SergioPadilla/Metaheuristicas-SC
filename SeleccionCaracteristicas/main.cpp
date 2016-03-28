@@ -17,7 +17,7 @@ int main() {
 //        solution.push_back(Randint(0,1));
 //    }
 //
-//    cerr << "Porcentaje de acierto: " << tasa_clas(solution, characteristics);
+    cerr << "Porcentaje de acierto: " << tasa_clas( characteristics);
 
     //cerr << elapsed_time() << endl;
 }

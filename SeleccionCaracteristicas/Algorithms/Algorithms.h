@@ -30,6 +30,11 @@ double tasa_clas(vector<int> solution, vector<Characteristic> characteristics);
 int find(vector<Characteristic> characteristics, Characteristic c);
 
 /**
+ * Auxiliary function to select the promiser characteristic
+ */
+Characteristic selectPromising(vector<int> solution, vector<Characteristic> characteristics);
+
+/**
  * Greedy algorithm
  * Sequential Forward Selection
  */

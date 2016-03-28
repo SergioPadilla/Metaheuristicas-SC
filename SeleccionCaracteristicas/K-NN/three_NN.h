@@ -22,23 +22,18 @@ vector<MaxMin> maxmin(vector<Characteristic> characteristics);
 double distance(vector<double> a, vector<double> b);
 
 /**
- * True if some component is 0
- */
-bool isZero(vector<double> v);
-
-/**
  * Return the three neighbour
  */
-vector<Characteristic> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics);
+pair<vector<Characteristic>, vector<double>> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics);
 
 /**
  * get the majority class of the three neighbours
  */
-string get_class(vector<Characteristic> characteristics);
+string get_class(vector<Characteristic> characteristics, vector<double> distances);
 
 /**
  * 3-NN algorithm
  */
-bool three_NN(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate);
+bool three_NN(vector<Characteristic> characteristics, int pos_candidate);
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

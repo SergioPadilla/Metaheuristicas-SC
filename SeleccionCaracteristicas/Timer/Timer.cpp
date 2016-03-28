@@ -78,16 +78,17 @@ void start_timers()
 
 
 
-double elapsed_time( type ){
+/*double elapsed_time( type )
     TIMER_TYPE type;
-/*
+{
+*//*
       FUNCTION:       return the time used in seconds (virtual or real, depending on type)
       INPUT:          TIMER_TYPE (virtual or real time)
       OUTPUT:         seconds since last call to start_timers (virtual or real)
       (SIDE)EFFECTS:  none
-*/
+*//*
 
     elapsed = clock()- start_time;
     return elapsed / CLOCKS_PER_SEC;
-}
+}*/
 

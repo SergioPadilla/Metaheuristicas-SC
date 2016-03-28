@@ -8,7 +8,7 @@ double tasa_clas(vector<Characteristic> characteristics){
     int good = 0;
 
     for(int i = 0; i < characteristics.size(); i++){
-        if(three_NN(characteristics.at(i), characteristics, i))
+        if(three_NN(characteristics, i))
             good++;
     }
 
@@ -98,6 +98,7 @@ vector<int> flip(vector<int> s, int i){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/*
 double coolingTemperature(double t_cero, double t_f, double t){
     double beta = (t_cero-t_f)/(M*t_cero*t_f); // ¿M?
     return t / (1+beta*t);
@@ -133,4 +134,4 @@ vector<int> ES(vector<Characteristic> characteristics){
     }
 
     return S;
-}
+}*/

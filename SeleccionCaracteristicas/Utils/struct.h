@@ -24,6 +24,11 @@ struct Characteristic {
 struct MaxMin{
     double max;
     double min;
+
+    MaxMin(double ma, double mi){
+        max = ma;
+        min = mi;
+    }
 };
 
 #endif //SELECCIONCARACTERISTICAS_STRUCT_H

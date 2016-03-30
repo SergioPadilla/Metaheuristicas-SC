@@ -6,12 +6,12 @@
 #include <iostream>
 #include "three_NN.h"
 
-vector<Characteristic> normalized(vector<Characteristic> characteristics){
-    vector<Characteristic> normal = vector<Characteristic>(characteristics);
+vector<Data> normalized(vector<Data> characteristics){
+    vector<Data> normal = vector<Data>(characteristics);
     vector<MaxMin> maxmin_attributes = maxmin(characteristics);
 
     for(int i = 0; i < characteristics.size(); i++){
-        Characteristic characteristic = characteristics.at(i);
+        Data characteristic = characteristics.at(i);
 
         for(int j = 0; j < characteristic.attributes.size(); j++){
             //double attribute_normal = (characteristic.attributes.at(j) - maxmin_attributes.at(j).min) /
@@ -29,7 +29,7 @@ vector<Characteristic> normalized(vector<Characteristic> characteristics){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<MaxMin> maxmin(vector<Characteristic> characteristics){
+vector<MaxMin> maxmin(vector<Data> characteristics){
     vector <MaxMin> maxmin_attributes;
 
     // Initialize with the values of the first
@@ -58,8 +58,10 @@ double distance(vector<double> a, vector<double> b){
         cerr << "The vector don't have the same size, impossible to calculate the distance" << endl;
     }
     else {
-        for(int i = 0; i < a.size(); i++)
-            sum = sum + (a.at(i)-b.at(i))*(a.at(i)-b.at(i));
+        for(int i = 0; i < a.size(); i++) {
+            double val=a.at(i) - b.at(i);
+            sum += (val*val);
+        }
 
         return sqrt(sum);
     }
@@ -82,9 +84,9 @@ int max_of_three(vector<double> v){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate){
+pair<vector<Data>, vector<double>> calculate_Neigbours(Data candidate, vector<Data> characteristics, int pos_candidate){
     vector<double> distancies_min;
-    vector<Characteristic> neighbours_characteristics;
+    vector<Data> neighbours_characteristics;
     int pos = 4; // I suppose that pos_candidate are in the first three elements
 
     for(int i = 0; i < 3; i++){
@@ -114,7 +116,7 @@ pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic 
         }
     }
 
-    pair<vector<Characteristic>, vector<double>> neighbours;
+    pair<vector<Data>, vector<double>> neighbours;
     neighbours.first = neighbours_characteristics;
     neighbours.second = distancies_min;
 
@@ -123,7 +125,7 @@ pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-string get_class(vector<Characteristic> characteristics, vector<double> distances){
+string get_class(vector<Data> characteristics, vector<double> distances){
     string majority_class;
     double distance_actual;
 
@@ -150,13 +152,13 @@ string get_class(vector<Characteristic> characteristics, vector<double> distance
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-bool three_NN(vector<Characteristic> characteristics, int pos_candidate){
+bool three_NN(vector<Data> characteristics, int pos_candidate){
     //normalized attributes
-    vector<Characteristic> characteristics_normalized = normalized(characteristics);
-    Characteristic candidate_normalized = characteristics_normalized.at(pos_candidate);
+    vector<Data> characteristics_normalized = normalized(characteristics);
+    Data candidate_normalized = characteristics_normalized.at(pos_candidate);
 
     // Calculate three neighbours nearest
-    pair<vector<Characteristic>, vector<double>> neighbours = calculate_Neigbours(candidate_normalized,characteristics_normalized, pos_candidate);
+    pair<vector<Data>, vector<double>> neighbours = calculate_Neigbours(candidate_normalized, characteristics_normalized, pos_candidate);
 
     return (get_class(neighbours.first, neighbours.second) == candidate_normalized.clase);
 }

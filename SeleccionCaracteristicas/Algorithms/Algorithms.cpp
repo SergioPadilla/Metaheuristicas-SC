@@ -4,7 +4,7 @@
 
 #include "Algorithms.h"
 
-double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
+double tasa_clas(vector<int> solution, vector<Data> characteristics){
     double good = 0;
 
     for(int i = 0; i < solution.size(); i++){
@@ -18,7 +18,7 @@ double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*vector<int> SFS(vector<Characteristic> characteristics){
+/*vector<int> SFS(vector<Data> characteristics){
     vector<int> F;
     vector<int> S;
     double better_solution = 0; // No characteristics selected
@@ -65,7 +65,7 @@ double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
     return S;
 }*/
 
-vector<int> SFS(vector<Characteristic> characteristics){
+vector<int> SFS(vector<Data> characteristics){
     int n = characteristics.size();
     vector<int> F = sol_random(n);
     vector<int> S;
@@ -140,7 +140,7 @@ double coolingTemperature(double t_cero, double t_f, double t){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> ES(vector<Characteristic> characteristics){
+vector<int> ES(vector<Data> characteristics){
     vector<int> s_cero = sol_random(characteristics.size()); // Get solution initial random
     vector<int> S = vector<int>(s_cero);
     double T_cero = 0.3*C(s_cero)/(-log(0.3)); // C función que calcula el ¿coste? de la solucion

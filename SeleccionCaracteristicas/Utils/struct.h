@@ -11,11 +11,11 @@
 
 using namespace std;
 
-struct Characteristic {
+struct Data {
     vector<double> attributes;
     string clase;
 
-    bool equal(Characteristic c){
+    bool equal(Data c){
         bool is = (attributes == c.attributes && clase == c.clase) ?  true :  false;
         return is;
     }

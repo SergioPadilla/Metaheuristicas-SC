@@ -14,13 +14,13 @@
  * Function objetive
  * % correct clasifications for the 3-NN
  */
-double tasa_clas(vector<int> solution, vector<Characteristic> characteristics);
+double tasa_clas(vector<int> solution, vector<Data> characteristics);
 
 /**
  * Greedy algorithm
  * Sequential Forward Selection
  */
-vector<int> SFS(vector<Characteristic> characteristics);
+vector<int> SFS(vector<Data> characteristics);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
 
@@ -42,14 +42,14 @@ vector<int> flip(vector<int> s, int i);
 /**
  * Simulated Annealing algorithm
  */
-vector<int> ES(vector<Characteristic> characteristics);
+vector<int> ES(vector<Data> characteristics);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for ES
 
 /**
  * Tabú Search algorithm
  */
-vector<int> BT(vector<Characteristic> characteristics);
+vector<int> BT(vector<Data> characteristics);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BT
 

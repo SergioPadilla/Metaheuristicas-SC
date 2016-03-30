@@ -7,33 +7,39 @@
 
 
 #include "../Utils/struct.h"
+#include <vector>
 
-/**
- * Return the same characteristic with the attributes normalized
- */
-vector<Data> normalized(vector<Data> characteristics);
-/**
- * Return the interval of definition for each attribute
- */
-vector<MaxMin> maxmin(vector<Data> characteristics);
-/**
- * Return the distance between two vector
- */
-double distance(vector<double> a, vector<double> b);
+class Three_NN {
+private:
+    vector<Data> clasificator;
 
-/**
- * Return the three neighbour
- */
-pair<vector<Data>, vector<double>> calculate_Neigbours(Data candidate, vector<Data> characteristics, int pos_candidate);
+    /**
+     * Auxiliary function to select Characteristic
+     */
+    vector<Data> get_characteristic(vector<int> solution);
+public:
+    /**
+     * Constructor
+     */
+    Three_NN(vector<Data> train_set){
+        clasificator = train_set;
+    }
 
-/**
- * get the majority class of the three neighbours
- */
-string get_class(vector<Data> characteristics, vector<double> distances);
+    /**
+     * get and set
+     */
+    void setClasificator(vector<Data> train_set){
+        clasificator = train_set;
+    }
 
-/**
- * 3-NN algorithm
- */
-bool three_NN(vector<Data> characteristics, int pos_candidate);
+    vector<Data> getClasificator(){
+        return clasificator;
+    }
+
+    /**
+     * 3-NN algorithm
+     */
+    bool evaluate(vector<Data> datas, int pos_candidate);
+};
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

@@ -14,7 +14,7 @@
  * Greedy algorithm
  * Sequential Forward Selection
  */
-vector<int> SFS(vector<Data> characteristics);
+vector<int> SFS(Three_NN clasificator, vector<Data> test);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
 
@@ -24,14 +24,14 @@ vector<int> SFS(vector<Data> characteristics);
 vector<int> sol_random(int size);
 
 /**
+ * Local Search algorithm
+ */
+vector<int> BL(Three_NN clasificator, vector<Data> test);
+
+/**
  * Auxiliary function to cooling temperature
  */
 double coolingTemperature(double t_cero, double t_f, double t);
-
-/**
- * Auxiliary function to generate new neighbour solution
- */
-vector<int> flip(vector<int> s, int i);
 
 /**
  * Simulated Annealing algorithm

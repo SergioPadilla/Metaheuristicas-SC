@@ -62,9 +62,29 @@ vector<int> sol_random(int size){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> flip(vector<int> s, int i){
-    s.at(i) = (s.at(i) == 0) ? 1 : 0;
-    return s;
+vector<int> BL(Three_NN clasificator, vector<Data> test){
+    vector<int> S = sol_random(clasificator.getClasificator().size());
+    double new_rate, best_rate;
+    best_rate = 0;
+    bool end = false;
+    bool better;
+
+    for(int i = 0; i < 15000 && !end; i++){
+        better = false;
+        for(int j = 0; j < S.size() && !better; j++){
+            S.at(i) = (S.at(i) + 1) % 2; // flip
+            new_rate = tasa_clas(S, clasificator.getClasificator(), test);
+
+            if(best_rate < new_rate){
+                best_rate = new_rate;
+                better = true;
+            }
+            else
+                S.at(i) = (S.at(i) + 1) % 2; // flip back
+        }
+    }
+
+    return S;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

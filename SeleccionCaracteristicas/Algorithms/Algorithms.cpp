@@ -3,109 +3,46 @@
 //
 
 #include "Algorithms.h"
-
-double tasa_clas(vector<int> solution, vector<Data> characteristics){
-    double good = 0;
-
-    for(int i = 0; i < solution.size(); i++){
-        if(solution.at(i) == 1)
-            if(three_NN(characteristics, i))
-                good++;
-    }
-
-    return 100*good/characteristics.size();
-}
+#include "Functions.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*vector<int> SFS(vector<Data> characteristics){
+vector<int> SFS(Three_NN clasificator, vector<Data> test){
     vector<int> F;
     vector<int> S;
-    double better_solution = 0; // No characteristics selected
-    double new_solution = 0;
-    double older_solution = 0;
-    int pos_best = -1;
+    double new_rate, best_rate;
+    best_rate = 0;
     bool end = false;
+    int pos_s = -1;
+    int pos_f;
 
     // Init S and F
-    for(int i = 0; i < characteristics.size(); i++){
+    for(int i = 0; i < test.size(); i++){
         S.push_back(0);
-        F.push_back(1);
+        F.push_back(i);
     }
 
-    // check if F is empty, count the number of zeros
-    int zeros = 0;
-    int n = F.size();
-
-    for(int i = 0; i<15000 && zeros != n && !end; i++){ //TODO: a 15000 no llega nunca
-        for(int j = 0; j < S.size(); j++){
-            if(S.at(j) == 0) {
-                S.at(j) = 1;
-
-                new_solution = tasa_clas(S, characteristics); // TODO: la mejora se produce con 1 acierto, luego bastaria con coger el primer acierto
-                if (new_solution > better_solution) {
-                    better_solution = new_solution;
-                    pos_best = j;
-                }
-
-                S.at(j) = 0;
-            }
-        }
-
-        S.at(pos_best) = 1;
-        F.at(pos_best) = 0;
-        zeros++;
-
-        if(better_solution == older_solution) //if the previous solution is equal to the new solution => nothing better
-            end = true;
-        else
-            older_solution = better_solution;
-    }
-
-    return S;
-}*/
-
-vector<int> SFS(vector<Data> characteristics){
-    int n = characteristics.size();
-    vector<int> F = sol_random(n);
-    vector<int> S;
-    double better_solution = 0; // No characteristics selected
-    double new_solution = 0;
-    double older_solution = 0;
-    int pos_best = -1;
-    bool end = false;
-
-    // Init S
-    for(int i = 0; i < characteristics.size(); i++){
-        S.push_back(0);
-    }
-
-    // check if F is empty, count the number of zeros
-    int zeros = 0;
-
-    for(int i = 0; i<15000 && zeros != n && !end; i++){
+    for(int i = 0; i < 15000 && !F.empty() && !end; i++){
         for(int j = 0; j < F.size(); j++){
-            if(F.at(j) == 0) {
-                F.at(j) = 1;
+            int value = F.at(j);
+            S.at(value) = 1;
+            new_rate = tasa_clas(S, clasificator.getClasificator(), test);
 
-                new_solution = tasa_clas(F, characteristics);
-                if (new_solution > better_solution) {
-                    better_solution = new_solution;
-                    pos_best = j;
-                }
-
-                F.at(j) = 0;
+            if(new_rate > best_rate){
+                pos_s = value;
+                best_rate = new_rate;
+                pos_f = j;
             }
+
+            S.at(j) = 0;
         }
 
-        S.at(pos_best) = 1;
-        F.at(pos_best) = 1;
-        zeros++;
-
-        if(better_solution == older_solution) //if the previous solution is equal to the new solution => nothing better
-            end = true;
+        if(pos_s != -1){
+            S.at(pos_s) = 1;
+            F.erase(F.begin()+pos_f);
+        }
         else
-            older_solution = better_solution;
+            end = true;
     }
 
     return S;
@@ -134,7 +71,7 @@ vector<int> flip(vector<int> s, int i){
 
 /*
 double coolingTemperature(double t_cero, double t_f, double t){
-    double beta = (t_cero-t_f)/(M*t_cero*t_f); // ¿M?
+    double beta = (t_cero-t_f)/(15000*t_cero*t_f); // ¿M?
     return t / (1+beta*t);
 }
 

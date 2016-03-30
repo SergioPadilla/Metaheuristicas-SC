@@ -30,11 +30,22 @@ double distance(vector<double> a, vector<double> b);
 /**
  * Return the three neighbour
  */
-pair<vector<Data>, vector<double>> calculate_Neigbours(Data candidate, vector<Data> datas, int pos_candidate);
+pair<vector<Data>, vector<double>> calculate_Neigbours(Data candidate, vector<Data> datas);
 
 /**
  * get the majority class of the three neighbours
  */
 string get_class(vector<Data> datas, vector<double> distances);
+
+/**
+ * Auxiliary function to select Characteristic of the clasificator depend on the solution
+ */
+vector<Data> get_characteristic(vector<int> solution, vector<Data> datas);
+
+/**
+ * Function objetive
+ * % correct clasifications for the 3-NN
+ */
+double tasa_clas(vector<int> solution, vector<Data> training, vector<Data> test);
 
 #endif //SELECCIONCARACTERISTICAS_FUNCTIONS_H

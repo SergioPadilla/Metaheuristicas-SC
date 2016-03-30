@@ -3,6 +3,7 @@
 //
 
 #include "FileReaderARFF.h"
+#include "../Algorithms/Functions.h"
 
 FileReaderARFF::FileReaderARFF(string pathFile){
     file = pathFile;
@@ -79,7 +80,7 @@ vector<Data> FileReaderARFF::readData(int num_attributes){
         cout << "Error al abrir el archivo" << endl;
     }
 
-    return data;
+    return normalized(data);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

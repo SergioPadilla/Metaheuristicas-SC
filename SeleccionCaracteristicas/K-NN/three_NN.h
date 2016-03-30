@@ -13,10 +13,6 @@ class Three_NN {
 private:
     vector<Data> clasificator;
 
-    /**
-     * Auxiliary function to select Characteristic
-     */
-    vector<Data> get_characteristic(vector<int> solution);
 public:
     /**
      * Constructor
@@ -28,18 +24,14 @@ public:
     /**
      * get and set
      */
-    void setClasificator(vector<Data> train_set){
-        clasificator = train_set;
-    }
+    void setClasificator(vector<Data> train_set);
 
-    vector<Data> getClasificator(){
-        return clasificator;
-    }
+    vector<Data> getClasificator();
 
     /**
      * 3-NN algorithm
      */
-    bool evaluate(vector<Data> datas, int pos_candidate);
+    bool evaluate(Data candidate);
 };
 
 #endif //SELECCIONCARACTERISTICAS_TRES_NN_H

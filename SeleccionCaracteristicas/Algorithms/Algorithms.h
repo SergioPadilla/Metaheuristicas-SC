@@ -11,12 +11,6 @@
 #include <cmath>
 
 /**
- * Function objetive
- * % correct clasifications for the 3-NN
- */
-double tasa_clas(vector<int> solution, vector<Data> characteristics);
-
-/**
  * Greedy algorithm
  * Sequential Forward Selection
  */

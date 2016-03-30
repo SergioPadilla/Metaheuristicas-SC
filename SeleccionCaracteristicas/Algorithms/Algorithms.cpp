@@ -4,12 +4,13 @@
 
 #include "Algorithms.h"
 
-double tasa_clas(vector<Characteristic> characteristics){
-    int good = 0;
+double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
+    double good = 0;
 
-    for(int i = 0; i < characteristics.size(); i++){
-        if(three_NN(characteristics, i))
-            good++;
+    for(int i = 0; i < solution.size(); i++){
+        if(solution.at(i) == 1)
+            if(three_NN(characteristics, i))
+                good++;
     }
 
     return 100*good/characteristics.size();
@@ -17,92 +18,94 @@ double tasa_clas(vector<Characteristic> characteristics){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-double tasa_clas(vector<int> solution, vector<Characteristic> characteristics){
-    vector<Characteristic> characteristics_selected;
+/*vector<int> SFS(vector<Characteristic> characteristics){
+    vector<int> F;
+    vector<int> S;
+    double better_solution = 0; // No characteristics selected
+    double new_solution = 0;
+    double older_solution = 0;
+    int pos_best = -1;
+    bool end = false;
 
-    for(int i = 0; i < solution.size(); i++){
-        if(solution.at(i) == 1){
-            characteristics_selected.push_back(characteristics.at(i));
-        }
+    // Init S and F
+    for(int i = 0; i < characteristics.size(); i++){
+        S.push_back(0);
+        F.push_back(1);
     }
 
-    return tasa_clas(characteristics_selected);
-}
+    // check if F is empty, count the number of zeros
+    int zeros = 0;
+    int n = F.size();
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    for(int i = 0; i<15000 && zeros != n && !end; i++){ //TODO: a 15000 no llega nunca
+        for(int j = 0; j < S.size(); j++){
+            if(S.at(j) == 0) {
+                S.at(j) = 1;
 
-int find(vector<Characteristic> characteristics, Characteristic c){
-    bool find = false;
-    int pos;
+                new_solution = tasa_clas(S, characteristics); // TODO: la mejora se produce con 1 acierto, luego bastaria con coger el primer acierto
+                if (new_solution > better_solution) {
+                    better_solution = new_solution;
+                    pos_best = j;
+                }
 
-    for(int i = 0; i < characteristics.size() && !find; i++){
-        if(characteristics.at(i).equal(c)){
-            find = true;
-            pos = i;
-        }
-    }
-
-    return pos;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Characteristic selectPromising(vector<int> solution, vector<Characteristic> characteristics){
-    double tax, tax2;
-    Characteristic characteristic;
-
-    tax = tasa_clas(solution, characteristics);
-
-    for(int i = 0; i < solution.size(); i++){
-        if(solution.at(i) == 0){
-            solution.at(i) = 1;
-            tax2 = tasa_clas(solution,characteristics);
-
-            if(tax2 > tax){
-                tax = tax2;
-                characteristic = characteristics.at(i);
+                S.at(j) = 0;
             }
-
-            solution.at(i) = 1;
         }
+
+        S.at(pos_best) = 1;
+        F.at(pos_best) = 0;
+        zeros++;
+
+        if(better_solution == older_solution) //if the previous solution is equal to the new solution => nothing better
+            end = true;
+        else
+            older_solution = better_solution;
     }
 
-    return characteristic;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    return S;
+}*/
 
 vector<int> SFS(vector<Characteristic> characteristics){
-    vector<Characteristic> F = vector<Characteristic>(characteristics);
+    int n = characteristics.size();
+    vector<int> F = sol_random(n);
     vector<int> S;
-    double sol_actual = 0; // No characteristics selected
-    double sol_new;
+    double better_solution = 0; // No characteristics selected
+    double new_solution = 0;
+    double older_solution = 0;
+    int pos_best = -1;
+    bool end = false;
 
     // Init S
     for(int i = 0; i < characteristics.size(); i++){
         S.push_back(0);
     }
 
-    bool fin = false;
-    Characteristic promising;
-    int pos;
+    // check if F is empty, count the number of zeros
+    int zeros = 0;
 
-    for(int i = 0; i < 15000 && !F.empty() && !fin; i++){
-        promising = selectPromising(S, characteristics); //Seleccionamos la mas prometedora TODO: ¿Que pasa si ninguna mejora?
-        pos = find(F,promising);
-        F.erase(F.begin() + pos);
-        pos = find(characteristics,promising);
-        S.at(pos) = 1;
+    for(int i = 0; i<15000 && zeros != n && !end; i++){
+        for(int j = 0; j < F.size(); j++){
+            if(F.at(j) == 0) {
+                F.at(j) = 1;
 
-        // Evaluar S
-        sol_new = tasa_clas(S,characteristics);
-        // Si mejora a sol_actual;
-        if(sol_new > sol_actual) // TODO: esto no tiene sentido, lo he elegido así antes
-            sol_actual = sol_new;
-        //    sol_actual = nueva evaluacion de S
-        // Si no
-        //    S.insert(S.begin() + pos, 0);
-        //    fin = true;
+                new_solution = tasa_clas(F, characteristics);
+                if (new_solution > better_solution) {
+                    better_solution = new_solution;
+                    pos_best = j;
+                }
+
+                F.at(j) = 0;
+            }
+        }
+
+        S.at(pos_best) = 1;
+        F.at(pos_best) = 1;
+        zeros++;
+
+        if(better_solution == older_solution) //if the previous solution is equal to the new solution => nothing better
+            end = true;
+        else
+            older_solution = better_solution;
     }
 
     return S;

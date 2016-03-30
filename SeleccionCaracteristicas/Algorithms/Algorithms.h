@@ -14,25 +14,7 @@
  * Function objetive
  * % correct clasifications for the 3-NN
  */
-double tasa_clas(vector<Characteristic> characteristics);
-
-/**
- * Function objetive
- * % correct clasifications for the 3-NN
- * Param: Accept a vector solution binary
- */
 double tasa_clas(vector<int> solution, vector<Characteristic> characteristics);
-
-/**
- * Auxiliary function to find a characteristic in a vector of characteristics
- * Return the position
- */
-int find(vector<Characteristic> characteristics, Characteristic c);
-
-/**
- * Auxiliary function to select the promiser characteristic
- */
-Characteristic selectPromising(vector<int> solution, vector<Characteristic> characteristics);
 
 /**
  * Greedy algorithm

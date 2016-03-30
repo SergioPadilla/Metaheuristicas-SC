@@ -52,8 +52,7 @@ vector<MaxMin> maxmin(vector<Characteristic> characteristics){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 double distance(vector<double> a, vector<double> b){
-    double distance;
-    double sum = -1;
+    double sum = 0;
 
     if(a.size() != b.size()){
         cerr << "The vector don't have the same size, impossible to calculate the distance" << endl;
@@ -70,11 +69,23 @@ double distance(vector<double> a, vector<double> b){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+int max_of_three(vector<double> v){
+    int i = 0;
+
+    if(v.at(i) < v.at(1))
+        i = 1;
+    if(v.at(i) < v.at(2))
+        i = 2;
+
+    return i;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate){
     vector<double> distancies_min;
     vector<Characteristic> neighbours_characteristics;
     int pos = 4; // I suppose that pos_candidate are in the first three elements
-    bool change;
 
     for(int i = 0; i < 3; i++){
         neighbours_characteristics.push_back(characteristics.at(i));
@@ -92,15 +103,14 @@ pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic 
         pos = 3; // if pos_candidate aren't in the first three position
 
     for(int i = pos; i < characteristics.size(); i++){
-        change = false;
         if(i != pos_candidate) {
             double dist = distance(candidate.attributes, characteristics.at(i).attributes);
-            for (int j = 0; j < 3 && !change; j++)
-                if (dist < distancies_min.at(j)) {
-                    change = true;
-                    distancies_min.at(j) = dist;
-                    neighbours_characteristics.at(j) = characteristics.at(i);
-                }
+            int max = max_of_three(distancies_min);
+
+            if (dist < distancies_min.at(max)){
+                distancies_min.at(max) = dist;
+                neighbours_characteristics.at(max) = characteristics.at(i);
+             }
         }
     }
 
@@ -148,5 +158,5 @@ bool three_NN(vector<Characteristic> characteristics, int pos_candidate){
     // Calculate three neighbours nearest
     pair<vector<Characteristic>, vector<double>> neighbours = calculate_Neigbours(candidate_normalized,characteristics_normalized, pos_candidate);
 
-    return get_class(neighbours.first, neighbours.second) == candidate_normalized.clase;
+    return (get_class(neighbours.first, neighbours.second) == candidate_normalized.clase);
 }

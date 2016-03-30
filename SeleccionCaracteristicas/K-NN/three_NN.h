@@ -24,7 +24,7 @@ double distance(vector<double> a, vector<double> b);
 /**
  * Return the three neighbour
  */
-pair<vector<Characteristic>, vector<double>> calculate_Neigbours(vector<double> candidate, vector<Characteristic> characteristics);
+pair<vector<Characteristic>, vector<double>> calculate_Neigbours(Characteristic candidate, vector<Characteristic> characteristics, int pos_candidate);
 
 /**
  * get the majority class of the three neighbours

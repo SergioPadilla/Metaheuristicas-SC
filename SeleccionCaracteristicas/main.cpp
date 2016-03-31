@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     Set_random(69);
-    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff"); //TODO: no estan todas las clases
+    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
     //FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     vector<Data> datas = reader.readFile();
 
@@ -49,6 +49,6 @@ int main() {
         }
     }
 
-//    cerr << "Porcentaje de acierto SFS: " << tasa_clas(SFS(train, test),train,test);
-    cerr << "Porcentaje de acierto BL: " << tasa_clas(BL(train, test), train, test);
+    cerr << "Porcentaje de acierto SFS: " << tasa_clas(SFS(train),train,test);
+    cerr << "Porcentaje de acierto BL: " << tasa_clas(BL(train), train, test);
 }

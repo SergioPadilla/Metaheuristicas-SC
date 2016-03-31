@@ -14,7 +14,7 @@
  * Greedy algorithm
  * Sequential Forward Selection
  */
-vector<int> SFS(vector<Data> train, vector<Data> test);
+vector<int> SFS(vector<Data> train);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
 
@@ -24,9 +24,14 @@ vector<int> SFS(vector<Data> train, vector<Data> test);
 vector<int> sol_random(int size);
 
 /**
+ *
+ */
+vector<int> vector_random(int n);
+
+/**
  * Local Search algorithm
  */
-vector<int> BL(vector<Data> train, vector<Data> test);
+vector<int> BL(vector<Data> train);
 
 /**
  * Auxiliary function to cooling temperature

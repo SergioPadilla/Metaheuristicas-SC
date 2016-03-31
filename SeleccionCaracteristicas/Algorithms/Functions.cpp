@@ -62,7 +62,7 @@ double distance(vector<double> a, vector<double> b){
             sum += (val*val);
         }
 
-    return sum;
+    return sqrt(sum);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -147,7 +147,7 @@ vector<Data> get_characteristic(vector<int> solution, vector<Data> datas){
     Data data_modified;
     vector<Data> new_clasificator;
     for(int i = 0; i < datas.size(); i++){
-        for(int j = 0; solution.size(); j++)
+        for(int j = 0; j < solution.size(); j++)
             if(solution.at(j) == 1)
                 aux.push_back(datas.at(i).attributes.at(j));
 

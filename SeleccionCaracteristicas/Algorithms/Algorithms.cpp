@@ -2,12 +2,14 @@
 // Created by Sergio Padilla López on 24/3/16.
 //
 
+#include <ostream>
+#include <iostream>
 #include "Algorithms.h"
 #include "Functions.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> SFS(Three_NN clasificator, vector<Data> test){
+vector<int> SFS(vector<Data> train, vector<Data> test){
     vector<int> F;
     vector<int> S;
     double new_rate, best_rate;
@@ -17,16 +19,17 @@ vector<int> SFS(Three_NN clasificator, vector<Data> test){
     int pos_f;
 
     // Init S and F
-    for(int i = 0; i < test.size(); i++){
+    for(int i = 0; i < test.at(0).attributes.size(); i++){
         S.push_back(0);
         F.push_back(i);
     }
 
     for(int i = 0; i < 15000 && !F.empty() && !end; i++){
+        pos_s = -1;
         for(int j = 0; j < F.size(); j++){
             int value = F.at(j);
             S.at(value) = 1;
-            new_rate = tasa_clas(S, clasificator.getClasificator(), test);
+            new_rate = tasa_clas(S, train, train);
 
             if(new_rate > best_rate){
                 pos_s = value;
@@ -34,7 +37,7 @@ vector<int> SFS(Three_NN clasificator, vector<Data> test){
                 pos_f = j;
             }
 
-            S.at(j) = 0;
+            S.at(value) = 0;
         }
 
         if(pos_s != -1){
@@ -62,26 +65,31 @@ vector<int> sol_random(int size){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> BL(Three_NN clasificator, vector<Data> test){
-    vector<int> S = sol_random(clasificator.getClasificator().size());
-    double new_rate, best_rate;
-    best_rate = 0;
+vector<int> BL(vector<Data> train, vector<Data> test){
+    vector<int> S = sol_random(train.at(0).attributes.size());
+    vector<int> S_neighbour = vector<int>(S);
+    double new_rate, rate_s;
+    rate_s = tasa_clas(S, train, train);
     bool end = false;
     bool better;
 
     for(int i = 0; i < 15000 && !end; i++){
         better = false;
         for(int j = 0; j < S.size() && !better; j++){
-            S.at(i) = (S.at(i) + 1) % 2; // flip
-            new_rate = tasa_clas(S, clasificator.getClasificator(), test);
+            int pos_flip = Randint(0, S.size()-1); // TODO: aleatorizar
+            S_neighbour.at(i) = (S_neighbour.at(i) + 1) % 2; // flip
+            new_rate = tasa_clas(S_neighbour, train, train);
 
-            if(best_rate < new_rate){
-                best_rate = new_rate;
+            if(rate_s < new_rate){
+                S = S_neighbour;
                 better = true;
             }
             else
-                S.at(i) = (S.at(i) + 1) % 2; // flip back
+                S_neighbour.at(i) = (S_neighbour.at(i) + 1) % 2; // flip back
         }
+
+        if(!better)
+            end = true;
     }
 
     return S;

@@ -9,8 +9,8 @@ using namespace std;
 
 int main() {
     Set_random(69);
-    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
-//    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
+//    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff"); //TODO: no estan todas las clases
+    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     vector<Data> datas = reader.readFile();
 
     vector<string> classes = reader.readHead().first;

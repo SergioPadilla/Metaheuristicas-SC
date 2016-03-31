@@ -30,10 +30,10 @@ pair <vector<string>, int> FileReaderARFF::readHead(){
                 while(classes.find(",") != -1) {
                     int comma_pos = classes.find(",");
                     class_readed.push_back(classes.substr(0, comma_pos));
-                    classes.erase(0, comma_pos+2);
+                    classes.erase(0, comma_pos+1);
                 }
 
-                class_readed.push_back(classes.substr(0, classes.size()-1));
+                class_readed.push_back(classes.substr(0, classes.find("}")));
             }
             else if(readed.find("@attribute") != -1){
                 num_attributes++;
@@ -69,7 +69,7 @@ vector<Data> FileReaderARFF::readData(int num_attributes){
             getline(f, readed);
 
             if(found && readed != "")
-                data.push_back(stringToCharacteristic(readed, num_attributes));
+                data.push_back(stringToData(readed, num_attributes));
             else
                 found = readed.find("@data") != -1;
         }
@@ -85,8 +85,8 @@ vector<Data> FileReaderARFF::readData(int num_attributes){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Data FileReaderARFF::stringToCharacteristic(string to_parse, int num_attributes){
-    Data characteristic;
+Data FileReaderARFF::stringToData(string to_parse, int num_attributes){
+    Data data;
     vector<double> attributes;
 
     for(int i = 0; i < num_attributes; i++){
@@ -95,10 +95,14 @@ Data FileReaderARFF::stringToCharacteristic(string to_parse, int num_attributes)
         to_parse.erase(0, to_parse.find(",")+1);
     }
 
-    characteristic.attributes = attributes;
-    characteristic.clase = to_parse;
+    data.attributes = attributes;
 
-    return characteristic;
+    if(to_parse.size() == 1 || to_parse.size() == 2)
+        data.clase = to_parse;
+    else
+        data.clase = to_parse.substr(0, to_parse.size()-1); // erase "\r"
+
+    return data;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

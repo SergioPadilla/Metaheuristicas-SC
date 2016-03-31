@@ -19,7 +19,7 @@ class FileReaderARFF {
 private:
     string file;
 
-    Data stringToCharacteristic(string to_parse, int num_attributes);
+    Data stringToData(string to_parse, int num_attributes);
     vector<Data> readData(int num_attributes);
 public:
     FileReaderARFF(string pathFile);

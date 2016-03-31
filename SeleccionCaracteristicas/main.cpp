@@ -3,59 +3,51 @@
 #include "FileReader/FileReaderARFF.h"
 #include "random/random.h"
 #include "Algorithms/Algorithms.h"
+#include "Algorithms/Functions.h"
 
 using namespace std;
 
 int main() {
-    //start_timers();
     Set_random(69);
     FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
+//    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     vector<Data> datas = reader.readFile();
 
-    vector<vector<Data>> v;
-    vector<Data> v2;
-
-    // Divide the data in 5 vector for cross validation
-    for(int i = 0; i < 5; i++){
-        for(int j = i*datas.size()/5; j < (i+1)*datas.size()/5; j++){
-            v2.push_back(datas.at(j));
-        }
-        v.push_back(v2);
-        v2.clear();
-    }
-
-    vector<pair<vector<Data>, vector<Data>>> partitions;
     vector<string> classes = reader.readHead().first;
-    map<string, bool> map_classes;
-    vector<Data> t, f;
+    vector<int> begin_class;
+    int count = -1;
+    vector<Data> datas_sort;
+    vector<Data> train, test;
+    int pos;
 
-    for(int j = 0; j < v.size(); j++) {
-        for (int i = 0; i < v.at(j).size(); i++) {
-            if(map_classes[v.at(j).at(i).clase] == true){
-                t.push_back(v.at(j).at(i));
-                map_classes[v.at(j).at(i).clase] = false;
-            }
-            else{
-                f.push_back(v.at(j).at(i));
-                map_classes[v.at(j).at(i).clase] = true;
+    // sort vector by class
+    for(string c : classes){
+        for(Data d : datas){
+            if(c == d.clase){
+                datas_sort.push_back(d);
+                count++;
             }
         }
 
-        partitions.push_back(pair<vector<Data>, vector<Data>>(t,f));
-        t.clear();
-        f.clear();
+        begin_class.push_back(count);
     }
 
-/*    vector<int> solution;
-    solution.push_back(1);
+    // Generate two partitions aleatory
+    for(int i = 0; i < begin_class.size(); i++){
+        for(int j = begin_class.at(i)-1; j >= 0 ; j-=2){
+            pos = Randint(0,j);
+            train.push_back(datas_sort.at(pos));
+            begin_class.erase(begin_class.begin()+pos);
+            pos = Randint(0,j-1);
+            test.push_back(datas_sort.at(pos));
+            begin_class.erase(begin_class.begin()+pos);
+        }
 
-    for(int i = 1; i < characteristics.size(); i++){
-        solution.push_back(1);
-    }*/
+        for(int j = 0; j < begin_class.size(); j++){
+            begin_class.at(j) -= begin_class.at(i);
+        }
+    }
 
-    cerr << "stop";
-//    cerr << "Porcentaje de acierto: " << tasa_clas(solution, characteristics) << endl;
-//    cerr << "Porcentaje de acierto SFS: " << tasa_clas(SFS(characteristics), characteristics);
-
-    //cerr << elapsed_time() << endl;
+    cerr << "Porcentaje de acierto SFS: " << tasa_clas(SFS(Three_NN(train), test),train,test);
+//    cerr << "Porcentaje de acierto BL: " << tasa_clas(BL(datas), datas);
 }

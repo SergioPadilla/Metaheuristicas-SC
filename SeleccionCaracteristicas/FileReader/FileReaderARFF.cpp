@@ -97,10 +97,11 @@ Data FileReaderARFF::stringToData(string to_parse, int num_attributes){
 
     data.attributes = attributes;
 
-    if(to_parse.size() == 1 || to_parse.size() == 2)
-        data.clase = to_parse;
-    else
-        data.clase = to_parse.substr(0, to_parse.size()-1); // erase "\r"
+    if(to_parse[to_parse.size()-1] == '\r'){
+        to_parse.erase(to_parse.size()-1);
+    }
+
+    data.clase = to_parse;
 
     return data;
 }

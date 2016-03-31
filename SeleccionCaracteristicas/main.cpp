@@ -9,7 +9,7 @@ using namespace std;
 
 int main() {
     Set_random(69);
-//    FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff"); //TODO: no estan todas las clases
+    //FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff"); //TODO: no estan todas las clases
     FileReaderARFF reader = FileReaderARFF("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     vector<Data> datas = reader.readFile();
 
@@ -37,14 +37,15 @@ int main() {
         for(int j = begin_class.at(i)-1; j >= 0 ; j-=2){
             pos = Randint(0,j);
             train.push_back(datas_sort.at(pos));
-            begin_class.erase(begin_class.begin()+pos);
+            datas_sort.erase(datas_sort.begin()+pos);
             pos = Randint(0,j-1);
             test.push_back(datas_sort.at(pos));
-            begin_class.erase(begin_class.begin()+pos);
+            datas_sort.erase(datas_sort.begin()+pos);
         }
 
+        int value_aux = begin_class.at(i);
         for(int j = 0; j < begin_class.size(); j++){
-            begin_class.at(j) -= begin_class.at(i);
+            begin_class.at(j) -= value_aux;
         }
     }
 

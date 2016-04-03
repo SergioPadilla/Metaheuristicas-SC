@@ -80,17 +80,17 @@ vector<int> vector_random(int n){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 vector<int> BL(vector<Data> train){
-    vector<int> S = sol_random(train.at(0).attributes.size());
+    int n = train.at(0).attributes.size();
+    vector<int> S = sol_random(n);
     vector<int> S_neighbour = vector<int>(S);
     double new_rate, rate_s;
-    bool end = false;
     bool better = true;
 
     for(int i = 0; i < 15000 && better; i++){
         better = false;
-        vector<int> orden = vector_random(S.size());
+        vector<int> order = vector_random(n);
         for(int j = 0; j < S.size() && !better; j++){
-            int pos = orden.at(j);
+            int pos = order.at(j);
             S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
             new_rate = tasa_clas(S_neighbour, train, train);
 
@@ -109,171 +109,92 @@ vector<int> BL(vector<Data> train){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-double coolingTemperature(double t_cero, double t_f, double t){
-    double beta = (t_cero-t_f)/(15000*t_cero*t_f); // ¿M?
+
+double coolingTemperature(double t_cero, double t_f, double t, double M){
+    double beta = (t_cero-t_f)/(M*t_cero*t_f);
     return t / (1+beta*t);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> ES(vector<Data> characteristics){
-    vector<int> s_cero = sol_random(characteristics.size()); // Get solution initial random
-    vector<int> S = vector<int>(s_cero);
-    double T_cero = 0.3*C(s_cero)/(-log(0.3)); // C función que calcula el ¿coste? de la solucion
-    double T_f = (pow(10,-3) < T_cero) ? pow(10,-3) : 0;
-    double T = T_cero;
-    int iteration = 15000;
+vector<int> ES(vector<Data> train){
+    int n = train.at(0).attributes.size();
+    vector<int> S_act = sol_random(n);
+    vector<int> S = vector<int>(S_act);
+    vector<int> S_neighbour = vector<int>(S_act);
 
-    while(T < T_f || iteration > 0){
-        for(int i = 0; i < characteristics.size(); i++){
-            vector<int> s_2 = flip(s_cero, Randint(0,s_cero.size()-1));
-            double diff = f(s_2)-f(s_cero);
+    double T_zero = 0.3 * (tasa_clas(S_act, train, train)) / (-log(0.3));
+    double T_f = (pow(10,-3) < T_zero) ? pow(10,-3) : 0;
+    double T = T_zero;
 
-            if(diff < 0){
-                s_cero = s_2;
+    int max_neighbour = 10*n;
+    int max_success = 0.1*max_neighbour;
+    int max_cooling = 15000/max_neighbour;
 
-                if(C(s_cero) mejor C(S)){
-                    S = s_cero;
-                }
-            }
+    int n_success;
 
-        }
+    double cost_act = tasa_clas(S_act, train, train);
+    double cost_neighbour, cost_better, de;
 
-        T = coolingTemperature(T_cero, T_f, T);
-        iteration--;
-    }
+    bool accept;
 
-    return S;
-}*/
-
-void anneal (float *x, float *y, int *sol_act, int n_ciudades,
-             int n_enfriamientos, float t, float max_vecinos, float max_exitos)
-
-/* Parametros:
-      x,y -> Vectores que almacenan las coordenadas de las
-         	 ciudades en el plano.
-      sol_act -> solucion actual del algoritmo (al principio
-            	  contiene la solucion inicial de la que parte).
-      n_ciudades -> numero de ciudades del caso del problema.
-      t -> Temperatura (al principio contiene el valor de la
-           temperatura inicial).
-      n_enfriamientos -> Numero maximo de enfriamientos de la temperatura
-                     	 a realizar.
-      max_vecinos -> Numero maximo de vecinos a generar en cada iteracion
-               	   (para cada valor de la temperatura) antes de enfriarla.
-      max_exitos -> Numero de exitos a generar en cada iteracion
-               	  (para cada valor de la temperatura) antes de enfriarla.
-                    Se contabiliza un exito por cada vecino aceptado, ya sea
-                    directamente o probabilisticamente por el criterio de
-                    Metropolis.
-
-   De este modo, el annealing salta a la siguiente iteracion, es decir, enfria
-   la temperatura, cuando se hayan generado max_vecinos O se hayan contabilizado
-   max_exitos (lo primero que ocurra) para la temperatura actual.
-
-   En cambio, el algoritmo finaliza su ejecucion cuando se han realizado
-   n_enfriamientos iteraciones (es decir, se ha enfriado la temperatura
-   n_enfriamientos veces) O cuando para una temperatura no se ha contabilizado
-   ningun exito (lo que ocurra antes). */
-
-{
-    int i, j, k, n_exitos, aceptar, pos1, pos2, temp;
-    int *vecino, *mejor_sol;
-    float coste_act, coste_vecino, coste_mejor, de;
-
-
-    /* Reserva de memoria para las estructuras que almacenan el
-       vecino generado para la solucion actual y la mejor solucion
-       hallada hasta el momento en la exploracion del espacio */
-    vecino = (int *) malloc (n_ciudades*sizeof(int));
-    if (vecino==NULL)
-    {
-        printf("\nERROR DE MEMORIA.\n");
-        abort();
-    }
-
-    mejor_sol= (int *) malloc (n_ciudades*sizeof(int));
-    if (mejor_sol==NULL)
-    {
-        printf("\nERROR DE MEMORIA.\n");
-        abort();
-    }
-
-    /* Calculo del coste de la solucion inicial e inicializacion de la
-       mejor solucion encontrada hasta el momento a la solucion inicial */
-    coste_act=Costo (sol_act,x,y,n_ciudades);
-    coste_mejor=coste_act;
-    for (i=0;i<n_ciudades;i++)
-        mejor_sol[i]=sol_act[i];
-
-    /* Bucle principal del SA */
-    for (j=1;j<=n_enfriamientos;j++)
-    {
+    for (int j=1; j <= max_cooling; j++) {
         /* Inicializamos el contador de exitos a 0 para la temperatura actual. */
-        n_exitos=0;
+        n_success=0;
 
+        vector<int> order = vector_random(n);
         /* Bucle interno: generacion de vecinos para la temperatura actual.
-           Finaliza cuando se hayan generado max_vecinos o cuando se hayan
-           contabilizado max_exitos. */
-        for (k=1;k<=max_vecinos;k++)
-        {
+           Finaliza cuando se hayan generado max_neighbour o cuando se hayan
+           contabilizado max_success. */
+        for (int k=1; k <= max_neighbour; k++) {
             /* Obtencion de un vecino de la solucion actual por inversion */
-            Genera_Vecino (sol_act, vecino, n_ciudades, &pos1, &pos2);
+            int pos = order.at(j);
+            S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
 
             /* Estudiamos si el nuevo vecino es aceptado */
-            coste_vecino = Costo (vecino,x,y,n_ciudades);
-            de = coste_vecino - coste_act; // TODO: cambiar de orden la resta, cambiar la función de costo
-            aceptar = metrop(de,t);
+            cost_neighbour = tasa_clas(S_neighbour, train, train);
+            de = cost_act - cost_neighbour;
+            accept = de < 0.0 || Rand() < exp(-de / T);
 
             /* En el caso en que el nuevo vecino es aceptado: */
-            if (aceptar)
-            {
+            if (accept) {
                 /* Contamos un nuevo exito */
-                n_exitos++;
+                n_success++;
 
                 /* Actualizamos la solucion actual */
-                coste_act = coste_vecino;
-                temp = sol_act[pos1];
-                sol_act[pos1] = sol_act[pos2];
-                sol_act[pos2] = temp;
+                cost_act = cost_neighbour;
+                S_act = S_neighbour;
 
                 /* Actualizamos la mejor solucion hallada hasta el momento */
-                if (coste_act<coste_mejor)
-                {
-                    coste_mejor = coste_act;
-                    for (i=0;i<n_ciudades;i++)
-                        mejor_sol[i]=sol_act[i];
+                if (cost_act > cost_better) {
+                    cost_better = cost_act;
+                    S = S_act;
                 }
             }
+            else
+                S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; // flip back
 
             /* Saltamos a la siguiente iteracion (es decir, enfriamos la temperatura)
                si ya hemos sobrepasado el numero de exitos especificado */
-            if (n_exitos >= max_exitos) break;
+            if (n_success >= max_success)
+                break;
         }
 
         /* Informe en pantalla */
-        printf("\nIteracion: %d.\n",j);
-        printf("   T= %10.6f. Numero de exitos: %6d \n",t,n_exitos);
-        printf("   Coste Sol. actual = %12.6f. Coste Mejor Sol. = %12.6f \n",coste_act,coste_mejor);
+        cerr << endl << "Iteración " << j << endl;
+        cerr << "   T= " << T << endl << "Numero de exitos: " << n_success << endl;
+        cerr << "   Coste Solución actual = " << cost_act << endl << "   Coste Mejor Solución = " << cost_better << endl;
 
         /* Enfriamiento proporcional de la temperatura */
-        t *= TFACTR;
+        T = coolingTemperature(T_zero, T_f, T, 15000/max_neighbour);
 
         /* Terminamos la ejecucion del algoritmo en el caso en que no se consiga
            ningun exito para una temperatura concreta */
-        if (n_exitos == 0)
+        if (n_success == 0)
             break;
     }
 
-    /* Copiamos la mejor solucion encontrada para devolverla */
-    for (i=0;i<n_ciudades;i++)
-        sol_act[i]=mejor_sol[i];
-
-    /* Liberamos la memoria empleada */
-    free (vecino);
-    free (mejor_sol);
-    return;
+    return S;
 }
 
 #undef TFACTR

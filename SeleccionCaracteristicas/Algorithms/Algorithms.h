@@ -33,15 +33,17 @@ vector<int> vector_random(int n);
  */
 vector<int> BL(vector<Data> train);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BL
+
 /**
  * Auxiliary function to cooling temperature
  */
-double coolingTemperature(double t_cero, double t_f, double t);
+double coolingTemperature(double t_cero, double t_f, double t, double M);
 
 /**
  * Simulated Annealing algorithm
  */
-vector<int> ES(vector<Data> characteristics);
+vector<int> ES(vector<Data> train);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for ES
 

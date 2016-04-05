@@ -24,9 +24,9 @@ vector<int> SFS(vector<Data> train){
         F.push_back(i);
     }
 
-    for(int i = 0; i < 15000 && !F.empty() && !end; i++){
+    for(int i = 0; i < 15000 && !F.empty() && !end; ){
         pos_s = -1;
-        for(int j = 0; j < F.size(); j++){
+        for(int j = 0; j < F.size(); j++, i++){
             int value = F.at(j);
             S.at(value) = 1;
             new_rate = tasa_clas(S, train, train);

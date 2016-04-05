@@ -180,11 +180,6 @@ vector<int> ES(vector<Data> train){
                 break;
         }
 
-        /* Informe en pantalla */
-        cerr << endl << "Iteración " << j << endl;
-        cerr << "   T= " << T << endl << "Numero de exitos: " << n_success << endl;
-        cerr << "   Coste Solución actual = " << cost_act << endl << "   Coste Mejor Solución = " << cost_better << endl;
-
         /* Enfriamiento de la temperatura */
         T = coolingTemperature(T_zero, T_f, T, j*15000/max_neighbour);
 

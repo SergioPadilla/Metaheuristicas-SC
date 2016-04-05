@@ -112,7 +112,7 @@ vector<int> BL(vector<Data> train){
 
 double coolingTemperature(double t_cero, double t_f, double t, double M){
     double beta = (t_cero-t_f)/(M*t_cero*t_f);
-    return t / (1+beta*t);
+    return (t / (1+(beta*t)));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,7 +127,7 @@ vector<int> ES(vector<Data> train){
     double T_f = (pow(10,-3) < T_zero) ? pow(10,-3) : 0;
     double T = T_zero;
 
-    int max_neighbour = 10*n;
+    int max_neighbour = 5*n;
     int max_success = 0.1*max_neighbour;
     int max_cooling = 15000/max_neighbour;
 
@@ -185,8 +185,8 @@ vector<int> ES(vector<Data> train){
         cerr << "   T= " << T << endl << "Numero de exitos: " << n_success << endl;
         cerr << "   Coste Solución actual = " << cost_act << endl << "   Coste Mejor Solución = " << cost_better << endl;
 
-        /* Enfriamiento proporcional de la temperatura */
-        T = coolingTemperature(T_zero, T_f, T, 15000/max_neighbour);
+        /* Enfriamiento de la temperatura */
+        T = coolingTemperature(T_zero, T_f, T, j*15000/max_neighbour);
 
         /* Terminamos la ejecucion del algoritmo en el caso en que no se consiga
            ningun exito para una temperatura concreta */

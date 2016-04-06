@@ -23,6 +23,7 @@ int main() {
     vector<Data> train, test;
     int pos;
     clock_t start, end;
+    vector<int> ones;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////                            PRIMERA EJECUCION
@@ -32,6 +33,8 @@ int main() {
     cerr << "////////////// WDBC //////////////" << endl;
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/wdbc2.arff");
     datas = reader.readFile();
+
+    ones = vector<int>(datas.at(0).attributes.size(),1);
 
     classes = reader.readHead().first;
     count = -1;
@@ -68,6 +71,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -86,12 +94,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+/*    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -110,7 +123,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -124,6 +137,8 @@ int main() {
     cerr << "////////////// LIBRAS //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -159,6 +174,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -177,12 +197,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -201,7 +226,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -210,12 +235,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// libras 1
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     cerr << "////////////// ARRYTMIA //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -251,6 +278,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+   /* start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -269,12 +301,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+   /* start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -293,7 +330,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -302,7 +339,7 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////                            SEGUNDA EJECUCION
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -312,6 +349,8 @@ int main() {
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/wdbc2.arff");
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -347,6 +386,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -365,12 +409,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -389,7 +438,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -398,11 +447,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
+    ones.clear();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// wdbc 2
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
     cerr << "////////////// LIBRAS //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -438,6 +490,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -456,12 +513,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -480,7 +542,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -489,12 +551,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// libras 2
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     cerr << "////////////// ARRYTMIA //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -530,6 +594,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -548,12 +617,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -572,7 +646,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -581,7 +655,7 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////                            TERCERA EJECUCION
@@ -592,6 +666,8 @@ int main() {
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/wdbc2.arff");
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -627,6 +703,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -645,12 +726,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -669,7 +755,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -678,11 +764,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
+    ones.clear();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// wdbc 3
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
     cerr << "////////////// LIBRAS //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -718,6 +807,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -736,12 +830,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -760,7 +859,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -769,12 +868,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// libras 3
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     cerr << "////////////// ARRYTMIA //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -810,6 +911,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -828,12 +934,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -852,7 +963,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -861,7 +972,7 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////                            CUARTA EJECUCION
@@ -872,6 +983,8 @@ int main() {
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/wdbc2.arff");
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -907,6 +1020,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -925,12 +1043,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -949,7 +1072,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -958,11 +1081,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
+    ones.clear();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// wdbc 4
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
     cerr << "////////////// LIBRAS //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -998,6 +1124,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1016,12 +1147,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1040,7 +1176,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -1049,12 +1185,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// libras 4
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     cerr << "////////////// ARRYTMIA //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -1090,6 +1228,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1108,12 +1251,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1132,7 +1280,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -1141,7 +1289,7 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////                            QUINTA EJECUCION
@@ -1152,6 +1300,8 @@ int main() {
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/wdbc2.arff");
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -1187,6 +1337,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1205,12 +1360,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1229,7 +1389,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -1238,11 +1398,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
+    ones.clear();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// wdbc 5
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/movement_libras.arff");
     cerr << "////////////// LIBRAS //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -1278,6 +1441,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1296,12 +1464,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1320,7 +1493,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -1329,12 +1502,14 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-
+    ones.clear();
     /////////////////////////////////////////////////////////////////////////////////////////////////////////// libras 5
     reader.setFile("/Users/SergioPadilla/GitHub/Metaheuristicas-SC/arrhythmia.arff");
     cerr << "////////////// ARRYTMIA //////////////" << endl;
     datas = reader.readFile();
 
+    ones = vector<int>(datas.at(0).attributes.size(),1);
+
     classes = reader.readHead().first;
     count = -1;
 
@@ -1370,6 +1545,11 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+
+    /*start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1388,12 +1568,17 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
+    cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
+    end = clock()-start;
+    cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    
+    /*start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1412,7 +1597,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
 
     train.clear();
     test.clear();
@@ -1421,4 +1606,5 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
+    ones.clear();
 }

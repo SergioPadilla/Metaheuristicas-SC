@@ -48,4 +48,10 @@ vector<Data> get_characteristic(vector<int> solution, vector<Data> datas);
  */
 double tasa_clas(vector<int> solution, vector<Data> training, vector<Data> test);
 
+/**
+ * Function objetive
+ * % reduction
+ */
+double tasa_red(vector<int> solution);
+
 #endif //SELECCIONCARACTERISTICAS_FUNCTIONS_H

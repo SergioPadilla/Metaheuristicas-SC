@@ -177,3 +177,15 @@ double tasa_clas(vector<int> solution, vector<Data> training, vector<Data> test)
 
     return 100 * good / test_selected.size();
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+double tasa_red(vector<int> solution){
+    int ones = 0;
+
+    for(int i: solution)
+        if(i == 1)
+            ones++;
+
+    return 100.0/solution.size()*(solution.size()-ones);
+}

@@ -23,9 +23,11 @@ private:
     vector<Data> readData(int num_attributes);
 public:
     FileReaderARFF(string pathFile);
+    FileReaderARFF();
 
     pair<vector<string>, int> readHead();
     vector<Data> readFile();
+    void setFile(string pathFile);
 };
 
 #endif //SELECCIONCARACTERISTICAS_FILEREADERARFF_H

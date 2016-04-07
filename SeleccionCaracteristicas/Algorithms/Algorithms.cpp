@@ -86,10 +86,10 @@ vector<int> BL(vector<Data> train){
     double new_rate, rate_s;
     bool better = true;
 
-    for(int i = 0; i < 15000 && better; i++){
+    for(int i = 0; i < 15000 && better; ){
         better = false;
         vector<int> order = vector_random(n);
-        for(int j = 0; j < S.size() && !better; j++){
+        for(int j = 0; j < S.size() && !better; j++, i++){
             int pos = order.at(j);
             S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
             new_rate = tasa_clas(S_neighbour, train, train);

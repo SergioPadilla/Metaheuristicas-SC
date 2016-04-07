@@ -70,12 +70,13 @@ int main() {
 
     cerr << "----------------train-test----------------" << endl;
 
-    start = clock();
+    cerr << "Tasa_clas BT: " << tasa_clas(BT(train), train, test);
+    /*start = clock();
     cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -94,7 +95,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -104,7 +105,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-/*    start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -123,7 +124,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -178,7 +179,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -197,7 +198,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -207,7 +208,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -226,7 +227,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -282,7 +283,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-   /* start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -301,7 +302,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -311,7 +312,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-   /* start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -330,7 +331,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -390,7 +391,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -409,7 +410,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -419,7 +420,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -438,7 +439,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -494,7 +495,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -513,7 +514,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -523,7 +524,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -542,7 +543,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -598,7 +599,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -617,7 +618,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -627,7 +628,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -646,7 +647,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -707,7 +708,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -726,7 +727,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -736,7 +737,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -755,7 +756,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -811,7 +812,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -830,7 +831,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -840,7 +841,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -859,7 +860,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -915,7 +916,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -934,7 +935,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -944,7 +945,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -963,7 +964,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1024,7 +1025,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1043,7 +1044,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1053,7 +1054,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1072,7 +1073,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1128,7 +1129,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1147,7 +1148,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1157,7 +1158,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1176,7 +1177,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1232,7 +1233,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1251,7 +1252,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1261,7 +1262,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1280,7 +1281,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1341,7 +1342,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1360,7 +1361,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1370,7 +1371,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1389,7 +1390,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1445,7 +1446,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1464,7 +1465,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1474,7 +1475,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1493,7 +1494,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1549,7 +1550,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
 
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(train);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1568,7 +1569,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, train, test) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -1578,7 +1579,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
     
-    /*start = clock();
+    start = clock();
     solution_sfs = SFS(test);
     end = clock()-start;
     cerr << "Tiempo SFS: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1597,7 +1598,7 @@ int main() {
     end = clock()-start;
     cerr << "Tiempo ES: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class de ES: " << tasa_clas(solution_es, test, train) << endl;
-    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;*/
+    cerr << "tasa_red ES: " << tasa_red(solution_es) << endl;
 
     train.clear();
     test.clear();
@@ -1606,5 +1607,5 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-    ones.clear();
+    ones.clear();*/
 }

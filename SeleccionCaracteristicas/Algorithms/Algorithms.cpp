@@ -192,5 +192,55 @@ vector<int> ES(vector<Data> train){
     return S;
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool isTabuActive(int mov, vector<int> tabu_list){
+    for(int i : tabu_list)
+        if(i == mov)
+            return true;
+
+    return false;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vector<int> BT(vector<Data> train){
+    int n = train.at(0).attributes.size();
+    vector<int> S = vector_random(n);
+    vector<int> S_neighbour = vector<int>(S);
+    vector<int> S_act = vector<int>(S);
+
+    double cost_s = tasa_clas(S,train, train);
+    double cost_s_neighbour, cost_act;
+    int pos_better, pos_insert = 0;
+
+    int tam_max_tabu_list = n/3;
+    vector<int> tabu_list = vector<int>(tam_max_tabu_list, -1);
+
+    for(int i = 0; i < 15000; ){
+        vector<int> order = vector_random(n);
+        for(int j = 0; j < 30; j++,i++) {
+            int pos = order.at(j);
+            S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
+            cost_s_neighbour = tasa_clas(S_neighbour, train, train);
+
+            if(!isTabuActive(pos, tabu_list) || cost_s_neighbour > cost_s){
+                if(cost_s_neighbour > cost_act){
+                    cost_act = cost_s_neighbour;
+                    S_act = S_neighbour;
+                    pos_better = pos;
+                }
+            }
+
+            S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
+        }
+
+        cost_s = cost_act;
+        S = S_act;
+        tabu_list.insert(tabu_list.begin() + (pos_insert % tam_max_tabu_list), pos_better);
+        pos_insert++;
+    }
+}
+
 #undef TFACTR
 

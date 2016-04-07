@@ -48,6 +48,11 @@ vector<int> ES(vector<Data> train);
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for ES
 
 /**
+ * Auxiliary function to check if is tabu-active
+ */
+bool isTabuActive(int mov, vector<int> tabu_list);
+
+/**
  * Tabú Search algorithm
  */
 vector<int> BT(vector<Data> characteristics);

@@ -70,8 +70,7 @@ int main() {
 
     cerr << "----------------train-test----------------" << endl;
 
-    cerr << "Tasa_clas BT: " << tasa_clas(BT(train), train, test);
-    /*start = clock();
+    start = clock();
     cerr << "tasa_clas 3-NN: " << tasa_clas(ones, train, test) << endl;
     end = clock()-start;
     cerr << "Tiempo 3-NN: " << ((double)end)/CLOCKS_PER_SEC << endl;
@@ -1607,5 +1606,5 @@ int main() {
     solution_sfs.clear();
     begin_class.clear();
     datas.clear();
-    ones.clear();*/
+    ones.clear();
 }

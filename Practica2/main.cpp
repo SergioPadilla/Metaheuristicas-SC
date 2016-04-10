@@ -1,4 +1,7 @@
 #include <iostream>
+#include <vector>
+#include "FileReader/FileReaderARFF.h"
+#include "random/random.h"
 
 using namespace std;
 

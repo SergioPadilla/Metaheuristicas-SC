@@ -35,6 +35,13 @@ vector<int> BL(vector<Data> train);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BL
 
+/**
+ * Auxiliary function to get the best solutions of a vector of solutions
+ */
+vector<int> better(vector <int> solutions, vector<Data> train));
 
-
+/**
+ * BMB
+ */
+vector<int> BMB(vector<Data> train);
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

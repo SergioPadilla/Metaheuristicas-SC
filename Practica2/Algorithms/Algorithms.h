@@ -44,4 +44,13 @@ vector<int> better(vector <int> solutions, vector<Data> train));
  * BMB
  */
 vector<int> BMB(vector<Data> train);
+
+////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BMB
+
+/**
+ * Greedy algorithm random
+ * Sequential Forward Selection
+ */
+vector<int> SFSR(vector<Data> train);
+
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

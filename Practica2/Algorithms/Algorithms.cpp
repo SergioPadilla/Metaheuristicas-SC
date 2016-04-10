@@ -136,3 +136,57 @@ vector<int> BMB(vector<Data> train){
 
     return better(solutions, train);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vector<int> SFSR(vector<Data> train){
+    vector<int> F;
+    vector<int> S;
+    vector<int> LCR;
+    vector<double> rates;
+    double new_rate, best_rate;
+    best_rate = 0;
+    bool end = false;
+    int pos_s = -1;
+    int pos_f;
+
+    // Init S and F
+    for(int i = 0; i < train.at(0).attributes.size(); i++){
+        S.push_back(0);
+        F.push_back(i);
+    }
+
+    for(int i = 0; i < 15000 && !F.empty() && !end; ){
+        pos_s = -1;
+
+        // Evaluate F
+        for(int k : F) {
+            S.at(k) = 1;
+            rates.push_back(tasa_clas(S, train, train)); // Todo: esto no funciona porque no se en que posicion esta
+            S.at(k) = 0;
+        }
+
+        for(int j = 0; j < F.size(); j++, i++){
+            int value = F.at(j);
+            S.at(value) = 1;
+            new_rate = tasa_clas(S, train, train);
+
+            if(new_rate > best_rate){
+                pos_s = value;
+                best_rate = new_rate;
+                pos_f = j;
+            }
+
+            S.at(value) = 0;
+        }
+
+        if(pos_s != -1){
+            S.at(pos_s) = 1;
+            F.erase(F.begin()+pos_f);
+        }
+        else
+            end = true;
+    }
+
+    return S;
+}

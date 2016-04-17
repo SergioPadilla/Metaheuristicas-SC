@@ -38,7 +38,7 @@ vector<int> BL(vector<Data> train);
 /**
  * Auxiliary function to get the best solutions of a vector of solutions
  */
-vector<int> better(vector <int> solutions, vector<Data> train));
+vector<int> better(vector <int> solutions, vector<Data> train);
 
 /**
  * BMB
@@ -52,5 +52,10 @@ vector<int> BMB(vector<Data> train);
  * Sequential Forward Selection
  */
 vector<int> SFSR(vector<Data> train);
+
+/**
+ * GRASP algorithm
+ */
+vector<int> GRASP(vector<Data> train);
 
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

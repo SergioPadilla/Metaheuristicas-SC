@@ -4,6 +4,7 @@
 
 #include <ostream>
 #include <iostream>
+#include <map>
 #include "Algorithms.h"
 #include "Functions.h"
 
@@ -142,13 +143,14 @@ vector<int> BMB(vector<Data> train){
 vector<int> SFSR(vector<Data> train){
     vector<int> F;
     vector<int> S;
-    vector<int> LCR;
-    vector<double> rates;
+    vector<pair<double,int>> LCR;
+    multimap<double,int> rates; //Use multimap to sort by key, in this case, key will be tasa_clas of each flip
     double new_rate, best_rate;
     best_rate = 0;
     bool end = false;
     int pos_s = -1;
     int pos_f;
+    double alpha = 0.3;
 
     // Init S and F
     for(int i = 0; i < train.at(0).attributes.size(); i++){
@@ -162,22 +164,31 @@ vector<int> SFSR(vector<Data> train){
         // Evaluate F
         for(int k : F) {
             S.at(k) = 1;
-            rates.push_back(tasa_clas(S, train, train)); // Todo: esto no funciona porque no se en que posicion esta
+            rates.insert(pair<double,int>(tasa_clas(S, train, train),k));
             S.at(k) = 0;
         }
 
-        for(int j = 0; j < F.size(); j++, i++){
-            int value = F.at(j);
-            S.at(value) = 1;
-            new_rate = tasa_clas(S, train, train);
+        multimap<double,int>::iterator best_cost = rates.end()--;
+        multimap<double,int>::iterator worst_cost = rates.begin();
+
+        double nu = (*best_cost).first - (alpha*((*best_cost).first-(*worst_cost).first));
+
+        multimap<double,int>::iterator pos = rates.insert(pair<double,int>(nu,-1))++;
+
+        for(pos; pos != rates.end(); ++pos)
+            LCR.push_back((*pos));
+
+        random_shuffle(LCR.begin(), LCR.end());
+
+        for(int j = 0; j < LCR.size(); j++, i++){
+            pair<double,int> possible = LCR.at(j);
+            new_rate = possible.first;
 
             if(new_rate > best_rate){
-                pos_s = value;
+                pos_s = possible.second;
                 best_rate = new_rate;
                 pos_f = j;
             }
-
-            S.at(value) = 0;
         }
 
         if(pos_s != -1){

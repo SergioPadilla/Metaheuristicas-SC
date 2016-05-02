@@ -68,5 +68,6 @@ int main() {
     }
 
     //cerr << "SFSR: " << tasa_clas(BMB(train), train, test) << endl;
-    cerr << "GRASP: " << tasa_clas(GRASP(train), train, test) << endl;
+    //cerr << "GRASP: " << tasa_clas(GRASP(train), train, test) << endl;
+    cerr << "IML: " << tasa_clas(IML(train), train, test) << endl;
 }

@@ -221,3 +221,46 @@ vector<int> GRASP(vector<Data> train){
 
     return better(solutions,train);
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vector<int> mutate(vector<int> solution, int n){
+    vector<int> characteristics;
+
+    for(int i = 0; i < solution.size(); i++)
+        characteristics.push_back(i);
+
+    random_shuffle(characteristics.begin(), characteristics.end());
+
+    for(int i = 0; i < n; i++){
+        int pos = characteristics.at(i);
+        solution.at(pos) = (solution.at(pos) == 1) ? 0 : 1;
+    }
+
+    return solution;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vector<int> IML(vector<Data> train){
+    int n = train.at(0).attributes.size();
+    int t = 0.1*n;
+
+    vector<int> S = sol_random(n);
+    vector<int> best_S = BL(train,S);
+    vector<int> mutate_S, possible_S;
+    double possible_rate, best_rate = tasa_clas(best_S, train, train);
+
+    for(int i = 0; i < 25; i++){
+        mutate_S = mutate(best_S, t);
+        possible_S = BL(train, mutate_S);
+        possible_rate = tasa_clas(possible_S, train, train);
+
+        if(possible_rate > best_rate){
+            best_rate = possible_rate;
+            best_S = possible_S;
+        }
+    }
+
+    return best_S;
+}

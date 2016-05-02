@@ -31,7 +31,7 @@ vector<int> vector_random(int n);
 /**
  * Local Search algorithm
  */
-vector<int> BL(vector<Data> train);
+vector<int> BL(vector<Data> train, vector<int> solution_initial);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BL
 
@@ -58,4 +58,17 @@ vector<int> SFSR(vector<Data> train);
  */
 vector<int> GRASP(vector<Data> train);
 
+//////////////////////////////////////////////////////////////////////////////////////////////// finish method for GRASP
+
+/**
+ * Auxiliary function to mutate n characteristic
+ */
+vector<int> mutate(vector<int> solution, int n);
+
+/**
+ * IML algorithm
+ */
+vector<int> IML(vector<Data> train);
+
+//////////////////////////////////////////////////////////////////////////////////////////////// finish method for GRASP
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

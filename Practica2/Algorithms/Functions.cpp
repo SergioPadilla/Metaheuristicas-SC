@@ -72,24 +72,46 @@ pair<vector<Data>, vector<double>> calculate_Neigbours(Data candidate, vector<Da
     vector<Data> neighbours_characteristics;
     bool change = true;
     int max;
+    bool found = false; // true when found itself (the first distance = 0)
+    int pos;
 
     for(int i = 0; i < 3; i++){
         neighbours_characteristics.push_back(datas.at(i));
         distancies_min.push_back(distance(candidate.attributes, datas.at(i).attributes));
     }
 
-    for(int i = 3; i < datas.size(); i++){
+    for(int i = 0; i < 3 && !found; i++){
+        if(distancies_min.at(i) == 0){
+            found = true;
+            pos = i;
+        }
+    }
+
+    if(found){
+        neighbours_characteristics.at(pos) = datas.at(3);
+        distancies_min.at(pos) = distance(candidate.attributes, datas.at(3).attributes);
+        pos = 4;
+    }
+    else
+        pos = 3;
+
+    for(int i = pos; i < datas.size(); i++){
         double dist = distance(candidate.attributes, datas.at(i).attributes);
 
-        if(change) {
-            max = max_of_three(distancies_min);
-            change = false;
+        if(!found && dist == 0){
+            found = true;
         }
+        else {
+            if (change) {
+                max = max_of_three(distancies_min);
+                change = false;
+            }
 
-        if (dist < distancies_min.at(max)){
-            distancies_min.at(max) = dist;
-            neighbours_characteristics.at(max) = datas.at(i);
-            change = true;
+            if (dist < distancies_min.at(max)) {
+                distancies_min.at(max) = dist;
+                neighbours_characteristics.at(max) = datas.at(i);
+                change = true;
+            }
         }
     }
 

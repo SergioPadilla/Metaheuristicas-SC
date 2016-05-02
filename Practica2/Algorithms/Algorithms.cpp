@@ -164,6 +164,7 @@ vector<int> SFSR(vector<Data> train){
         pos_s = -1;
 
         // Evaluate F
+        rates.clear();
         for(int k : F) {
             S.at(k) = 1;
             rates.insert(pair<double,int>(tasa_clas(S, train, train),k));
@@ -176,8 +177,10 @@ vector<int> SFSR(vector<Data> train){
 
         double nu = (*best_cost).first - (alpha*((*best_cost).first-(*worst_cost).first));
 
-        multimap<double,int>::iterator pos = rates.insert(pair<double,int>(nu,-1))++;
+        multimap<double,int>::iterator pos = rates.insert(pair<double,int>(nu,-1));
+        pos++;
 
+        LCR.clear();
         for(pos; pos != rates.end(); ++pos)
             LCR.push_back((*pos));
 

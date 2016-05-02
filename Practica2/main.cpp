@@ -2,6 +2,8 @@
 #include <vector>
 #include "FileReader/FileReaderARFF.h"
 #include "random/random.h"
+#include "Algorithms/Algorithms.h"
+#include "Algorithms/Functions.h"
 
 using namespace std;
 
@@ -64,4 +66,7 @@ int main() {
             begin_class.at(j) -= value_aux;
         }
     }
+
+    //cerr << "SFSR: " << tasa_clas(BMB(train), train, test) << endl;
+    cerr << "GRASP: " << tasa_clas(GRASP(train), train, test) << endl;
 }

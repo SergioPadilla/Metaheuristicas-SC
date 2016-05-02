@@ -80,9 +80,9 @@ vector<int> vector_random(int n){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> BL(vector<Data> train){
+vector<int> BL(vector<Data> train, vector<int> solution_initial){
     int n = train.at(0).attributes.size();
-    vector<int> S = sol_random(n);
+    vector<int> S = solution_initial;
     vector<int> S_neighbour = vector<int>(S);
     double new_rate, rate_s;
     bool better = true;
@@ -130,10 +130,12 @@ vector<int> better(vector<vector<int>> solutions, vector<Data> train){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 vector<int> BMB(vector<Data> train){
+    int n = train.at(0).attributes.size();
+
     vector<vector<int>> solutions;
 
     for(int i = 0; i < 25; i++)
-        solutions.push_back(BL(train));
+        solutions.push_back(BL(train, sol_random(n)));
 
     return better(solutions, train);
 }
@@ -168,7 +170,8 @@ vector<int> SFSR(vector<Data> train){
             S.at(k) = 0;
         }
 
-        multimap<double,int>::iterator best_cost = rates.end()--;
+        multimap<double,int>::iterator best_cost = rates.end();
+        best_cost--;
         multimap<double,int>::iterator worst_cost = rates.begin();
 
         double nu = (*best_cost).first - (alpha*((*best_cost).first-(*worst_cost).first));
@@ -209,31 +212,8 @@ vector<int> GRASP(vector<Data> train){
     vector <vector<int>> solutions;
 
     for(int sol = 0; sol < 25; sol++) {
-
         vector<int> S = SFSR(train);
-        vector<int> S_neighbour = vector<int>(S);
-        double new_rate, rate_s;
-        bool better = true;
-
-        for (int i = 0; i < 15000 && better;) {
-            better = false;
-            vector<int> order = vector_random(n);
-            for (int j = 0; j < S.size() && !better; j++, i++) {
-                int pos = order.at(j);
-                S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; //flip
-                new_rate = tasa_clas(S_neighbour, train, train);
-
-                if (rate_s < new_rate) {
-                    S = S_neighbour;
-                    rate_s = new_rate;
-                    better = true;
-                }
-                else
-                    S_neighbour.at(pos) = (S_neighbour.at(pos) == 1) ? 0 : 1; // flip back
-            }
-        }
-
-        solutions.push_back(S);
+        solutions.push_back(BL(train, S));
     }
 
     return better(solutions,train);

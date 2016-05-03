@@ -36,39 +36,20 @@ vector<int> BL(vector<Data> train, vector<int> solution_initial);
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BL
 
 /**
- * Auxiliary function to get the best solutions of a vector of solutions
+ * Auxiliary function to cross two chromosomes
  */
-vector<int> better(vector <int> solutions, vector<Data> train);
+pair <vector<int>, vector<int>> cross(vector <int> chromosome1, vector <int> chromosome2, double probability);
 
 /**
- * BMB
+ * Auxiliary function select a chromosome with tournament
  */
-vector<int> BMB(vector<Data> train);
-
-////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BMB
+pair<double, vector<int>> selectBestChromosome(multimap<double,vector<int>> chromosomes);
 
 /**
- * Greedy algorithm random
- * Sequential Forward Selection
+ * AGG algorithm
  */
-vector<int> SFSR(vector<Data> train);
+vector<int> AGG(vector<Data> train);
 
-/**
- * GRASP algorithm
- */
-vector<int> GRASP(vector<Data> train);
+////////////////////////////////////////////////////////////////////////////////////////////////// finish method for AGG
 
-//////////////////////////////////////////////////////////////////////////////////////////////// finish method for GRASP
-
-/**
- * Auxiliary function to mutate n characteristic
- */
-vector<int> mutate(vector<int> solution, int n);
-
-/**
- * IML algorithm
- */
-vector<int> IML(vector<Data> train);
-
-//////////////////////////////////////////////////////////////////////////////////////////////// finish method for GRASP
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

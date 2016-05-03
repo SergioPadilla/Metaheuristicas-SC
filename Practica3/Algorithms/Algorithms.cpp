@@ -108,159 +108,92 @@ vector<int> BL(vector<Data> train, vector<int> solution_initial){
     return S;
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-vector<int> better(vector<vector<int>> solutions, vector<Data> train){
-    double cost_better = -1;
-    double new_cost = -1;
-    vector<int> best;
-
-    for(vector<int> v : solutions){
-        new_cost = tasa_clas(v, train, train);
-
-        if(new_cost > cost_better){
-            cost_better = new_cost;
-            best = v;
-        }
-    }
-
-    return best;
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> BMB(vector<Data> train){
-    int n = train.at(0).attributes.size();
+pair <pair<double,vector<int>>, pair<double,vector<int>>> cross(pair<double,vector<int>> chromosome1, pair<double,vector<int>> chromosome2, double probability, vector<Data> train){
+    if(Randfloat(0,1)>probability)
+        return pair <pair<double,vector<int>>, pair<double,vector<int>>>(chromosome1, chromosome2);
+    else {
+        int n = chromosome1.second.size() - 1;
+        int v1 = Randint(0, n); //TODO: comprobar si genera n alguna vez ver en el que tiene que generar 0-1 para ver si genera 1.
+        int v2 = Randint(0, n);
+        vector<int> chromosome1_vector = chromosome1.second, chromosome2_vector = chromosome2.second;
+        vector<int> song_1, song_2;
 
-    vector<vector<int>> solutions;
-
-    for(int i = 0; i < 25; i++)
-        solutions.push_back(BL(train, sol_random(n)));
-
-    return better(solutions, train);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-vector<int> SFSR(vector<Data> train){
-    vector<int> F;
-    vector<int> S;
-    vector<pair<double,int>> LCR;
-    multimap<double,int> rates; //Use multimap to sort by key, in this case, key will be tasa_clas of each flip
-    double new_rate, best_rate;
-    best_rate = 0;
-    bool end = false;
-    int pos_s = -1;
-    int pos_f;
-    double alpha = 0.3;
-
-    // Init S and F
-    for(int i = 0; i < train.at(0).attributes.size(); i++){
-        S.push_back(0);
-        F.push_back(i);
-    }
-
-    for(int i = 0; i < 15000 && !F.empty() && !end; ){
-        pos_s = -1;
-
-        // Evaluate F
-        rates.clear();
-        for(int k : F) {
-            S.at(k) = 1;
-            rates.insert(pair<double,int>(tasa_clas(S, train, train),k));
-            S.at(k) = 0;
-        }
-
-        multimap<double,int>::iterator best_cost = rates.end();
-        best_cost--;
-        multimap<double,int>::iterator worst_cost = rates.begin();
-
-        double nu = (*best_cost).first - (alpha*((*best_cost).first-(*worst_cost).first));
-
-        multimap<double,int>::iterator pos = rates.insert(pair<double,int>(nu,-1));
-        pos++;
-
-        LCR.clear();
-        for(pos; pos != rates.end(); ++pos)
-            LCR.push_back((*pos));
-
-        random_shuffle(LCR.begin(), LCR.end());
-
-        for(int j = 0; j < LCR.size(); j++, i++){
-            pair<double,int> possible = LCR.at(j);
-            new_rate = possible.first;
-
-            if(new_rate > best_rate){
-                pos_s = possible.second;
-                best_rate = new_rate;
-                pos_f = j;
+        for (int i = 0; i < n; i++) {
+            if (i <= v1) {
+                song_2.push_back(chromosome1_vector.at(i));
+                song_1.push_back(chromosome2_vector.at(i));
+            } else if (i > v1 && i < v2) {
+                song_1.push_back(chromosome1_vector.at(i));
+                song_2.push_back(chromosome2_vector.at(i));
+            } else if (i >= v2) {
+                song_2.push_back(chromosome1_vector.at(i));
+                song_1.push_back(chromosome2_vector.at(i));
             }
         }
 
-        if(pos_s != -1){
-            S.at(pos_s) = 1;
-            F.erase(F.begin()+pos_f);
-        }
-        else
-            end = true;
+        return pair <pair<double,vector<int>>, pair<double,vector<int>>>(pair<double,vector<int>>(tasa_clas(song_1, train, train),song_1),
+                                                                         pair<double,vector<int>>(tasa_clas(song_2, train, train),song_2));
     }
-
-    return S;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> GRASP(vector<Data> train){
+pair<double, vector<int>> selectBestChromosome(multimap<double,vector<int>> chromosomes){
+    vector<int> numbers;
+
+    for(int i = 0; i < 30; i++){
+        numbers.push_back(i);
+    }
+
+    random_shuffle(numbers.begin(), numbers.end());
+    int pos_random = Randint(0,28);
+    int max = numbers.at(pos_random);
+
+    if(max < numbers.at(pos_random+1))
+        max = numbers.at(pos_random+1);
+
+    multimap<double, vector<int>>::iterator it = chromosomes.begin();
+
+    for(int i = 0; i < max; i++)
+        it++;
+
+    return pair<double, vector<int>>((*it).first, (*it).second);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+vector<int> AGG(vector<Data> train){
     int n = train.at(0).attributes.size();
-    vector <vector<int>> solutions;
+    vector<int> chromosome;
+    pair<double, vector<int>> elitism;
+    multimap <double, vector<int>> chromosomes_initials, chromosomes_pre_cross, chromosomes_post_cross;
+    multimap<double, vector<int>>::iterator chromosome_selected;
+    double pc = 0.7;
+    double pm = 0.001;
 
-    for(int sol = 0; sol < 25; sol++) {
-        vector<int> S = SFSR(train);
-        solutions.push_back(BL(train, S));
+    for(int i = 0; i < 30; i++){
+        for(int j = 0; j < n; j++)
+            chromosome.push_back(Randint(0,1));
+
+        chromosomes_initials.insert(pair<double, vector<int>>(tasa_clas(chromosome, train, train), chromosome));
+        chromosome.clear();
     }
 
-    return better(solutions,train);
-}
+    multimap<double, vector<int>>::iterator best = chromosomes_initials.end();
+    best--;
+    elitism = *best;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    for(int i = 0; i < 30; i++)
+        chromosomes_pre_cross.insert(selectBestChromosome(chromosomes_initials));
 
-vector<int> mutate(vector<int> solution, int n){
-    vector<int> characteristics;
-
-    for(int i = 0; i < solution.size(); i++)
-        characteristics.push_back(i);
-
-    random_shuffle(characteristics.begin(), characteristics.end());
-
-    for(int i = 0; i < n; i++){
-        int pos = characteristics.at(i);
-        solution.at(pos) = (solution.at(pos) == 1) ? 0 : 1;
+    for(multimap<double, vector<int>>::iterator it = chromosomes_pre_cross.begin(); it != chromosomes_pre_cross.end(); ++it) {
+        multimap<double, vector<int>>::iterator element = it;
+        it++;
+        pair <pair<double,vector<int>>, pair<double,vector<int>>> chromosomes_crossed = cross(*element, *it, pc, train);
+        chromosomes_post_cross.insert(chromosomes_crossed.first);
+        chromosomes_post_cross.insert(chromosomes_crossed.second);
     }
-
-    return solution;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-vector<int> IML(vector<Data> train){
-    int n = train.at(0).attributes.size();
-    int t = 0.1*n;
-
-    vector<int> S = sol_random(n);
-    vector<int> best_S = BL(train,S);
-    vector<int> mutate_S, possible_S;
-    double possible_rate, best_rate = tasa_clas(best_S, train, train);
-
-    for(int i = 0; i < 25; i++){
-        mutate_S = mutate(best_S, t);
-        possible_S = BL(train, mutate_S);
-        possible_rate = tasa_clas(possible_S, train, train);
-
-        if(possible_rate > best_rate){
-            best_rate = possible_rate;
-            best_S = possible_S;
-        }
-    }
-
-    return best_S;
 }

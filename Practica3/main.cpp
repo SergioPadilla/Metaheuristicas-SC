@@ -67,5 +67,5 @@ int main() {
         }
     }
 
-    //cerr << "SFSR: " << tasa_clas(BMB(train), train, test) << endl;
+    cerr << "AGG: " << tasa_clas(AGG(train), train, test) << endl;
 }

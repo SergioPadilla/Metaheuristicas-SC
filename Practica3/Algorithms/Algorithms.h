@@ -9,6 +9,7 @@
 #include "../random/random.h"
 #include "../K-NN/three_NN.h"
 #include <cmath>
+#include <map>
 
 /**
  * Greedy algorithm
@@ -38,7 +39,12 @@ vector<int> BL(vector<Data> train, vector<int> solution_initial);
 /**
  * Auxiliary function to cross two chromosomes
  */
-pair <vector<int>, vector<int>> cross(vector <int> chromosome1, vector <int> chromosome2, double probability);
+pair <pair<double,vector<int>>, pair<double,vector<int>>> cross(pair<double,vector<int>> chromosome1, pair<double,vector<int>> chromosome2, vector<Data> train);
+
+/**
+ * Auxiliary function to cross a set of chromosomes
+ */
+multimap<double, vector<int>> cross(multimap<double, vector<int>> chromosomes, double probability, vector<Data> train);
 
 /**
  * Auxiliary function select a chromosome with tournament

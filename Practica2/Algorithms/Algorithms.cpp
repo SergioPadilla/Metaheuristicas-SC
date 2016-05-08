@@ -10,50 +10,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> SFS(vector<Data> train){
-    vector<int> F;
-    vector<int> S;
-    double new_rate, best_rate;
-    best_rate = 0;
-    bool end = false;
-    int pos_s = -1;
-    int pos_f;
-
-    // Init S and F
-    for(int i = 0; i < train.at(0).attributes.size(); i++){
-        S.push_back(0);
-        F.push_back(i);
-    }
-
-    for(int i = 0; i < 15000 && !F.empty() && !end; ){
-        pos_s = -1;
-        for(int j = 0; j < F.size(); j++, i++){
-            int value = F.at(j);
-            S.at(value) = 1;
-            new_rate = tasa_clas(S, train, train);
-
-            if(new_rate > best_rate){
-                pos_s = value;
-                best_rate = new_rate;
-                pos_f = j;
-            }
-
-            S.at(value) = 0;
-        }
-
-        if(pos_s != -1){
-            S.at(pos_s) = 1;
-            F.erase(F.begin()+pos_f);
-        }
-        else
-            end = true;
-    }
-
-    return S;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 vector<int> sol_random(int size){
     vector<int> s;
 
@@ -147,11 +103,9 @@ vector<int> SFSR(vector<Data> train){
     vector<int> S;
     vector<pair<double,int>> LCR;
     multimap<double,int> rates; //Use multimap to sort by key, in this case, key will be tasa_clas of each flip
-    double new_rate, best_rate;
+    double new_rate, best_rate=0;
     best_rate = 0;
     bool end = false;
-    int pos_s = -1;
-    int pos_f;
     double alpha = 0.3;
 
     // Init S and F
@@ -161,14 +115,13 @@ vector<int> SFSR(vector<Data> train){
     }
 
     for(int i = 0; i < 15000 && !F.empty() && !end; ){
-        pos_s = -1;
-
-        // Evaluate F
+        // Evaluate S
         rates.clear();
         for(int k : F) {
             S.at(k) = 1;
             rates.insert(pair<double,int>(tasa_clas(S, train, train),k));
             S.at(k) = 0;
+            i++;
         }
 
         multimap<double,int>::iterator best_cost = rates.end();
@@ -186,20 +139,21 @@ vector<int> SFSR(vector<Data> train){
 
         random_shuffle(LCR.begin(), LCR.end());
 
-        for(int j = 0; j < LCR.size(); j++, i++){
-            pair<double,int> possible = LCR.at(j);
-            new_rate = possible.first;
+        pair<double,int> new_element = LCR.at(0);
+        new_rate = new_element.first;
 
-            if(new_rate > best_rate){
-                pos_s = possible.second;
-                best_rate = new_rate;
-                pos_f = j;
+        if(new_rate > best_rate){
+            best_rate = new_rate;
+            int k = new_element.second;
+
+            bool found = false;
+            for(int j = 0; j < F.size() && !found; j++) {
+                if(F.at(j) == k) {
+                    S.at(k) = 1;
+                    F.erase(F.begin() + j);
+                    found = true;
+                }
             }
-        }
-
-        if(pos_s != -1){
-            S.at(pos_s) = 1;
-            F.erase(F.begin()+pos_f);
         }
         else
             end = true;
@@ -214,10 +168,8 @@ vector<int> GRASP(vector<Data> train){
     int n = train.at(0).attributes.size();
     vector <vector<int>> solutions;
 
-    for(int sol = 0; sol < 25; sol++) {
-        vector<int> S = SFSR(train);
-        solutions.push_back(BL(train, S));
-    }
+    for(int sol = 0; sol < 25; sol++)
+        solutions.push_back(BL(train, SFSR(train)));
 
     return better(solutions,train);
 }

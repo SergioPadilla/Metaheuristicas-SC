@@ -70,49 +70,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -163,49 +163,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -257,49 +257,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -355,49 +355,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -449,49 +449,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -543,49 +543,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -642,49 +642,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -736,49 +736,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -830,49 +830,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -930,49 +930,49 @@ int main() {
     
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -1024,49 +1024,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -1118,49 +1118,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -1222,49 +1222,49 @@ int main() {
     
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -1316,49 +1316,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();
@@ -1410,49 +1410,49 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(train);
+    //solution_bmb = BMB(train);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, train, test) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(train);
+    solution_grasp = SFSR(train);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, train, test) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(train);
+    //solution_iml = ILS(train);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, train, test) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, train, test) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_bmb = BMB(test);
+    //solution_bmb = BMB(test);
     end = clock()-start;
-    cerr << "Tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
-    cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
+    //cerr << "tiempo BMB: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class BMB: " << tasa_clas(solution_bmb, test, train) << endl;
+    //cerr << "tasa_red BMB: " << tasa_red(solution_bmb) << endl;
 
     start = clock();
-    solution_grasp = GRASP(test);
+    solution_grasp = SFSR(test);
     end = clock()-start;
-    cerr << "Tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tiempo GRASP: " << ((double)end)/CLOCKS_PER_SEC << endl;
     cerr << "tasa_class GRASP: " << tasa_clas(solution_grasp, test, train) << endl;
     cerr << "tasa_red GRASP: " << tasa_red(solution_grasp) << endl;
 
     start = clock();
-    solution_iml = IML(test);
+    //solution_iml = ILS(test);
     end = clock()-start;
-    cerr << "Tiempo IML: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class de IML: " << tasa_clas(solution_iml, test, train) << endl;
-    cerr << "tasa_red IML: " << tasa_red(solution_iml) << endl;
+    //cerr << "tiempo ILS: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    //cerr << "tasa_class de ILS: " << tasa_clas(solution_iml, test, train) << endl;
+    //cerr << "tasa_red ILS: " << tasa_red(solution_iml) << endl;
 
     train.clear();
     test.clear();

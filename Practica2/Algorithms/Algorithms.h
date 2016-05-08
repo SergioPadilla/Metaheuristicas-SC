@@ -11,14 +11,6 @@
 #include <cmath>
 
 /**
- * Greedy algorithm
- * Sequential Forward Selection
- */
-vector<int> SFS(vector<Data> train);
-
-////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
-
-/**
  * Auxiliary function to generate a random solution
  */
 vector<int> sol_random(int size);

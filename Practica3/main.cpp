@@ -73,11 +73,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -89,11 +89,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -149,11 +149,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -165,11 +165,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -226,11 +226,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -242,11 +242,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -307,11 +307,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -323,11 +323,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -384,11 +384,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -400,11 +400,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -463,11 +463,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -479,11 +479,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -547,11 +547,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -563,11 +563,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -626,11 +626,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
 
     cerr << "----------------test-train-----------------" << endl;
@@ -643,11 +643,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
 
     train.clear();
@@ -707,11 +707,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -723,11 +723,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
     
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -789,11 +789,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -805,11 +805,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -866,11 +866,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -882,11 +882,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -943,11 +943,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -959,11 +959,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -1025,11 +1025,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -1041,11 +1041,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -1104,11 +1104,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -1120,11 +1120,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     train.clear();
     test.clear();
@@ -1183,11 +1183,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(train);
+    solution_age = AGE(train);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
@@ -1199,11 +1199,11 @@ int main() {
     cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
 
     start = clock();
-    //solution_age = AGE(test);
+    solution_age = AGE(test);
     end = clock()-start;
-    //cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    //cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    //cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
+    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
 
     start = clock();
     

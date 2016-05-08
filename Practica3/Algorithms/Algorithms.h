@@ -11,13 +11,6 @@
 #include <cmath>
 #include <map>
 
-/**
- * Greedy algorithm
- * Sequential Forward Selection
- */
-vector<int> SFS(vector<Data> train);
-
-////////////////////////////////////////////////////////////////////////////////////////////////// finish method for SFS
 
 /**
  * Auxiliary function to generate a random solution

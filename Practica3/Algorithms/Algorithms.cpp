@@ -10,50 +10,6 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> SFS(vector<Data> train){
-    vector<int> F;
-    vector<int> S;
-    double new_rate, best_rate;
-    best_rate = 0;
-    bool end = false;
-    int pos_s = -1;
-    int pos_f;
-
-    // Init S and F
-    for(int i = 0; i < train.at(0).attributes.size(); i++){
-        S.push_back(0);
-        F.push_back(i);
-    }
-
-    for(int i = 0; i < 15000 && !F.empty() && !end; ){
-        pos_s = -1;
-        for(int j = 0; j < F.size(); j++, i++){
-            int value = F.at(j);
-            S.at(value) = 1;
-            new_rate = tasa_clas(S, train, train);
-
-            if(new_rate > best_rate){
-                pos_s = value;
-                best_rate = new_rate;
-                pos_f = j;
-            }
-
-            S.at(value) = 0;
-        }
-
-        if(pos_s != -1){
-            S.at(pos_s) = 1;
-            F.erase(F.begin()+pos_f);
-        }
-        else
-            end = true;
-    }
-
-    return S;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 vector<int> sol_random(int size){
     vector<int> s;
 
@@ -112,9 +68,9 @@ vector<int> BL(vector<Data> train, vector<int> solution_initial){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 pair <pair<double,vector<int>>, pair<double,vector<int>>> cross(pair<double,vector<int>> chromosome1, pair<double,vector<int>> chromosome2, vector<Data> train){
-    int n = chromosome1.second.size() - 1;
-    int v1 = Randint(0, n);
-    int v2 = Randint(0, n);
+    int n = chromosome1.second.size();
+    int v1 = Randint(0, n-1);
+    int v2 = Randint(0, n-1);
     int min, max;
     vector<int> chromosome1_vector = chromosome1.second, chromosome2_vector = chromosome2.second;
     vector<int> song_1, song_2;
@@ -152,8 +108,9 @@ multimap<double, vector<int>> cross(multimap<double, vector<int>> chromosomes, d
     vector<int> order_cross;
     pair <pair<double,vector<int>>, pair<double,vector<int>>> chromosomes_songs;
     multimap<double, vector<int>> chromosomed_crossed;
+    int n_cross = 30*probability;
 
-    for(int i = 0; i < 30*probability; i++){
+    for(int i = 0; i < n_cross; i++){
         order_cross.push_back(order.at(i));
     }
 
@@ -171,6 +128,16 @@ multimap<double, vector<int>> cross(multimap<double, vector<int>> chromosomes, d
 
         chromosomed_crossed.insert(chromosomes_songs.first);
         chromosomed_crossed.insert(chromosomes_songs.second);
+    }
+
+    for(int i = n_cross-1; i < order.size(); i++){
+        int v = order.at(i);
+        multimap<double, vector<int>>::iterator it = chromosomes.begin();
+
+        for (int j = 0; j < v; j++)
+            it++;
+
+        chromosomed_crossed.insert(*it);
     }
 
     return chromosomed_crossed;
@@ -200,34 +167,37 @@ vector<int> AGG(vector<Data> train){
     int n = train.at(0).attributes.size();
     vector<int> chromosome;
     pair<double, vector<int>> elitism;
-    multimap <double, vector<int>> chromosomes_initials, chromosomes_pre_cross, chromosomes_crossed;
+    multimap <double, vector<int>> chromosomes_initials, chromosomes_pre_cross, chromosomes_crossed, chromosomes_final;
     double pc = 0.7;
     double pm = 0.001;
     int num_gen_to_mute = pm*30*n;
     vector<int> gen_to_mute;
     vector<int> chromosome_to_mute;
     bool elitism_is;
+    int evaluates = 0;
 
-    for(int evaluates = 0; evaluates < 15000;) {
+    for (int i = 0; i < 30; i++) {
+        for (int j = 0; j < n; j++)
+            chromosome.push_back(Randint(0, 1));
 
+        chromosomes_final.insert(pair<double, vector<int>>(tasa_clas(chromosome, train, train), chromosome));
+        chromosome.clear();
+        evaluates++;
+    }
+
+    while(evaluates < 3000) {
         elitism_is = false;
         gen_to_mute = vector_random(n);
         chromosome_to_mute = vector_random(30);
 
-        for (int i = 0; i < 30; i++) {
-            for (int j = 0; j < n; j++)
-                chromosome.push_back(Randint(0, 1));
-
-            chromosomes_initials.insert(pair<double, vector<int>>(tasa_clas(chromosome, train, train), chromosome));
-            chromosome.clear();
-            evaluates++;
-        }
+        chromosomes_initials = chromosomes_final;
 
         multimap<double, vector<int>>::iterator best = chromosomes_initials.end();
         best--;
         elitism = *best;
 
         //Selection
+        chromosomes_pre_cross.clear();
         for (int i = 0; i < 30; i++)
             chromosomes_pre_cross.insert(selectBestChromosome(chromosomes_initials));
 
@@ -245,11 +215,11 @@ vector<int> AGG(vector<Data> train){
         for (int i = 0; i < num_gen_to_mute; i++) {
             multimap<double, vector<int>>::iterator chromosome_selected = chromosomes_crossed.begin();
 
-            for (int j = 0; j < chromosome_to_mute.at(i); i++)
+            for (int j = 0; j < chromosome_to_mute.at(i); j++)//TODO: error
                 chromosome_selected++;
 
             pair<double, vector<int>> element = *chromosome_selected;
-            chromosomes_crossed.erase(element.first);
+            chromosomes_crossed.erase(chromosome_selected);
             element.second.at(gen_to_mute.at(i)) = (element.second.at(gen_to_mute.at(i)) == 1) ? 0 : 1;
             chromosomes_crossed.insert(element);
         }
@@ -258,12 +228,19 @@ vector<int> AGG(vector<Data> train){
         for (multimap<double, vector<int>>::iterator it = chromosomes_crossed.begin(); it != chromosomes_crossed.end() && !elitism_is; it++) {
             pair<double, vector<int>> element = *it;
             if (element.first == elitism.first && element.second == elitism.second)
-                elitism_is == true;
+                elitism_is = true;
         }
 
         if (!elitism_is) {
             chromosomes_crossed.erase(chromosomes_crossed.begin());
             chromosomes_crossed.insert(elitism);
         }
+
+        chromosomes_final = chromosomes_crossed;
     }
+
+    multimap<double, vector<int>>::iterator best_chromosome = chromosomes_final.end();
+    best_chromosome--;
+    pair<double, vector<int>> solution_final = *best_chromosome;
+    return solution_final.second;
 }

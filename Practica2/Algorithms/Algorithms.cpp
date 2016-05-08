@@ -242,7 +242,7 @@ vector<int> mutate(vector<int> solution, int n){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-vector<int> IML(vector<Data> train){
+vector<int> ILS(vector<Data> train){
     int n = train.at(0).attributes.size();
     int t = 0.1*n;
 

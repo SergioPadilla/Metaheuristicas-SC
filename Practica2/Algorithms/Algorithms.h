@@ -66,9 +66,9 @@ vector<int> GRASP(vector<Data> train);
 vector<int> mutate(vector<int> solution, int n);
 
 /**
- * IML algorithm
+ * ILS algorithm
  */
-vector<int> IML(vector<Data> train);
+vector<int> ILS(vector<Data> train);
 
 //////////////////////////////////////////////////////////////////////////////////////////////// finish method for GRASP
 #endif //SELECCIONCARACTERISTICAS_ALGORITHMS_H

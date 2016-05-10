@@ -187,7 +187,7 @@ vector<int> AGG(vector<Data> train){
         evaluates++;
     }
 
-    while(evaluates < 15000) {
+    while(evaluates < 5000) {
         elitism_is = false;
         gen_to_mute = vector_random(n);
         chromosome_to_mute = vector_random(30);
@@ -223,7 +223,8 @@ vector<int> AGG(vector<Data> train){
             pair<double, vector<int>> element = *chromosome_selected;
             chromosomes_crossed.erase(chromosome_selected);
             element.second.at(gen_to_mute.at(i)) = (element.second.at(gen_to_mute.at(i)) == 1) ? 0 : 1;
-            chromosomes_crossed.insert(element);
+            chromosomes_crossed.insert(pair<double,vector<int>>(tasa_clas(element.second, train, train), element.second));
+            evaluates++;
         }
 
         //Select elitism
@@ -268,7 +269,7 @@ vector<int> AGE(vector<Data> train){
         evaluates++;
     }
 
-    while(evaluates < 15000) {
+    while(evaluates < 5000) {
         //Selection
         chromosomes_pre_cross.clear();
         for (int i = 0; i < 2; i++)
@@ -300,7 +301,8 @@ vector<int> AGE(vector<Data> train){
                 pair<double, vector<int>> element = *chromosome_selected;
                 chromosomes_crossed.erase(chromosome_selected);
                 element.second.at(gen_to_mute.at(i)) = (element.second.at(gen_to_mute.at(i)) == 1) ? 0 : 1;
-                chromosomes_crossed.insert(element);
+                chromosomes_crossed.insert(pair<double,vector<int>>(tasa_clas(element.second, train, train), element.second));
+                evaluates++;
             }
         }
 

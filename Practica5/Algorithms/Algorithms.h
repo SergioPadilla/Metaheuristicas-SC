@@ -25,7 +25,7 @@ vector<int> vector_random(int n);
 /**
  * Local Search algorithm
  */
-vector<int> BL(vector<Data> train, vector<int> solution_initial);
+pair<vector<int>,int> BL(vector<Data> train, vector<int> solution_initial);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BL
 
@@ -45,11 +45,25 @@ multimap<double, vector<int>> cross(multimap<double, vector<int>> chromosomes, d
 pair<double, vector<int>> selectBestChromosome(multimap<double,vector<int>> chromosomes);
 
 /**
- * AGG algorithm
+ * Generate poblacion after BL
  */
-vector<int> AGG(vector<Data> train);
+pair<multimap <double, vector<int>>, int> BLP(multimap <double, vector<int>> initial, vector<Data> train);
 
-////////////////////////////////////////////////////////////////////////////////////////////////// finish method for AGG
+////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BLP
+
+/**
+ * Generate poblacion after BL 0.1
+ */
+pair<multimap <double, vector<int>>, int> BLP2(multimap <double, vector<int>> initial, vector<Data> train);
+
+////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BLP
+
+/**
+ * Generate poblacion after BL 0.1mej
+ */
+pair<multimap <double, vector<int>>, int> BLP3(multimap <double, vector<int>> initial, vector<Data> train);
+
+////////////////////////////////////////////////////////////////////////////////////////////////// finish method for BLP
 
 /**
  * AM-(10,1.0)

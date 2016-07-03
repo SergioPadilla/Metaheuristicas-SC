@@ -8,8 +8,9 @@
 using namespace std;
 
 int main() {
-    vector<int> solution_agg;
-    vector<int> solution_age;
+    vector<int> solution_am1;
+    vector<int> solution_am2;
+    vector<int> solution_am3;
 
     FileReaderARFF reader;
     vector<Data> datas;
@@ -66,40 +67,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////// wdbc 1
@@ -142,40 +157,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -219,40 +248,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -300,40 +343,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -377,40 +434,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -456,40 +527,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -540,40 +625,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -619,42 +718,55 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
 
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
 
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -700,40 +812,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -782,40 +908,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -859,40 +999,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -936,40 +1090,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -1018,40 +1186,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -1097,40 +1279,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(test);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
     
@@ -1176,48 +1372,54 @@ int main() {
     cerr << "----------------train-test----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(train);
+    solution_am1 = AM1(train);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, train, test) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, train, test) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(train);
+    solution_am2 = AM2(train);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, train, test) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, train, test) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
+
+    start = clock();
+    solution_am3 = AM3(train);
+    end = clock()-start;
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, train, test) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     cerr << "----------------test-train-----------------" << endl;
 
     start = clock();
-    solution_agg = AGG(test);
+    solution_am1 = AM1(test);
     end = clock()-start;
-    cerr << "Tiempo AGG: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGG: " << tasa_clas(solution_agg, test, train) << endl;
-    cerr << "tasa_red AGG: " << tasa_red(solution_agg) << endl;
+    cerr << "Tiempo AM1: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM1: " << tasa_clas(solution_am1, test, train) << endl;
+    cerr << "tasa_red AM1: " << tasa_red(solution_am1) << endl;
 
     start = clock();
-    solution_age = AGE(test);
+    solution_am2 = AM2(test);
     end = clock()-start;
-    cerr << "Tiempo AGE: " << ((double)end)/CLOCKS_PER_SEC << endl;
-    cerr << "tasa_class AGE: " << tasa_clas(solution_age, test, train) << endl;
-    cerr << "tasa_red AGE: " << tasa_red(solution_age) << endl;
+    cerr << "Tiempo AM2: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM2: " << tasa_clas(solution_am2, test, train) << endl;
+    cerr << "tasa_red AM2: " << tasa_red(solution_am2) << endl;
 
     start = clock();
-    
+    solution_am3 = AM3(test);
     end = clock()-start;
-    
-    
-    
+    cerr << "Tiempo AM3: " << ((double)end)/CLOCKS_PER_SEC << endl;
+    cerr << "tasa_class AM3: " << tasa_clas(solution_am3, test, train) << endl;
+    cerr << "tasa_red AM3: " << tasa_red(solution_am3) << endl;
 
     train.clear();
     test.clear();
-    solution_age.clear();
-    
-    solution_agg.clear();
+    solution_am2.clear();
+    solution_am3.clear();
+    solution_am1.clear();
     begin_class.clear();
     datas.clear();
-    
 }
